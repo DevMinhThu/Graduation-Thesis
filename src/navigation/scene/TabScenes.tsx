@@ -7,8 +7,7 @@ import HomeDetailScreen from 'feature/home/HomeDetailScreen';
 // Screen
 import HomeScreen from 'feature/home/HomeScreen';
 import HomeUserListScreen from 'feature/home/HomeUserListScreen';
-import NotificationScreen from 'feature/notification/NotificationScreen';
-import SettingView from 'feature/setting/SettingScreen';
+import SearchScreen from 'feature/search/SearchScreen';
 import StyledTabBar from 'navigation/components/StyledTabBar';
 import navigationConfigs from 'navigation/config/options';
 import { TAB_NAVIGATION_ROOT } from 'navigation/config/routes';
@@ -39,16 +38,10 @@ const MainTabContainer = () => {
             icon: Images.icons.tab.home,
         },
         {
-            name: TAB_NAVIGATION_ROOT.NOTIFICATION_ROUTE.ROOT,
-            title: t('tab.notification'),
-            component: NotificationScreen,
-            icon: Images.icons.tab.notification,
-        },
-        {
-            name: TAB_NAVIGATION_ROOT.SETTING_ROUTE.ROOT,
-            title: t('tab.setting'),
-            component: SettingView,
-            icon: Images.icons.tab.setting,
+            name: TAB_NAVIGATION_ROOT.SEARCH_ROUTE.ROOT,
+            title: t('tab.search'),
+            component: SearchScreen,
+            icon: Images.icons.tab.search,
         },
         {
             name: TAB_NAVIGATION_ROOT.ACCOUNT_ROUTE.ROOT,
