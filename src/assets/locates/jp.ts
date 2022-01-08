@@ -45,10 +45,11 @@ export default {
 
     // screens
     tab: {
-        home: 'ホーム',
+        home: 'Home',
+        search: 'Search',
         notification: '通知',
         setting: '設定',
-        account: 'アカウント',
+        account: 'Profile',
     },
     authen: {
         login: {

@@ -76,14 +76,15 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     tabIcon: {
-        width: 17,
-        height: 17,
+        width: 30,
+        height: 30,
         resizeMode: 'contain',
         marginBottom: 5,
     },
     tabLabel: {
         paddingLeft: Size.PADDING.defaultTextPadding,
         textAlign: 'center',
+        fontWeight: '600',
     },
 });
 

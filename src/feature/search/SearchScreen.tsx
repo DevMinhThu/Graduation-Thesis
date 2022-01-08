@@ -8,7 +8,7 @@ const data = [
     { id: 3, name: 'Three' },
     { id: 4, name: 'Four' },
 ];
-const NotificationScreen: FunctionComponent = () => {
+const SearchScreen: FunctionComponent = () => {
     const [arraySelected, setArraySelected] = useState<any>([]);
     return (
         <View style={styles.container}>
@@ -29,4 +29,4 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
 });
-export default NotificationScreen;
+export default SearchScreen;

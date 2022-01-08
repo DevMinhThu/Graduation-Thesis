@@ -20,7 +20,7 @@ const AppStack = () => (
 
 const Navigation: React.FunctionComponent = () => {
     const { token } = useAppSelector((state) => state.userInfo);
-    if (token) {
+    if (!token) {
         return <AppStack />;
     }
     return <AuthStack />;
