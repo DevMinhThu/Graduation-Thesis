@@ -14,6 +14,8 @@ pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenIn
     :hermes_enabled => false
   )
 
+  pod 'RNSVG', :path => '../node_modules/react-native-svg'
+
   target 'OnlineLearningTests' do
     inherit! :complete
     # Pods for testing
