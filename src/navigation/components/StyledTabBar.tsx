@@ -1,9 +1,9 @@
-import React from 'react';
-import { Platform, View, Image, StyleSheet } from 'react-native';
-import Metrics from 'assets/metrics';
-import { StyledText, StyledTouchable } from 'components/base';
-import { Themes } from 'assets/themes';
 import Size from 'assets/sizes';
+import { Themes } from 'assets/themes';
+import { StyledText, StyledTouchable } from 'components/base';
+import React from 'react';
+import { Image, View } from 'react-native';
+import { ScaledSheet } from 'react-native-size-matters';
 
 const StyledTabBar = ({ state, descriptors, navigation }: any) => {
     return (
@@ -41,13 +41,15 @@ const StyledTabBar = ({ state, descriptors, navigation }: any) => {
                         key={route.key}
                         customStyle={[styles.tabButton]}
                     >
-                        <Image
-                            source={options?.icon}
-                            style={[
-                                styles.tabIcon,
-                                { tintColor: isFocused ? Themes.COLORS.primary : Themes.COLORS.textPrimary },
-                            ]}
-                        />
+                        <View style={[styles.contImgIcon, { borderTopWidth: isFocused ? 2 : 0 }]}>
+                            <Image
+                                source={options?.icon}
+                                style={[
+                                    styles.tabIcon,
+                                    { tintColor: isFocused ? Themes.COLORS.primary : Themes.COLORS.textPrimary },
+                                ]}
+                            />
+                        </View>
                         <StyledText
                             customStyle={[
                                 styles.tabLabel,
@@ -62,29 +64,40 @@ const StyledTabBar = ({ state, descriptors, navigation }: any) => {
     );
 };
 
-const styles = StyleSheet.create({
+const styles = ScaledSheet.create({
     tabContainer: {
         flexDirection: 'row',
-        marginBottom: Platform.OS === 'ios' ? Metrics.safeBottomPadding : 0,
         borderTopColor: '#DEE2E6',
         justifyContent: 'space-around',
         borderTopWidth: 1,
-        alignItems: Platform.OS === 'ios' ? 'flex-end' : 'center',
-        height: '8%',
+        alignItems: 'center',
+        shadowColor: Themes.COLORS.black,
+        shadowOffset: { width: 0, height: -5 },
+        shadowOpacity: 0.1,
+        shadowRadius: 3,
+        elevation: 5,
+        backgroundColor: Themes.COLORS.white,
     },
     tabButton: {
         alignItems: 'center',
+        width: '25%',
+    },
+    contImgIcon: {
+        width: '28@s',
+        paddingTop: '10@vs',
+        paddingBottom: '3@vs',
+        borderColor: Themes.COLORS.primary,
     },
     tabIcon: {
-        width: 30,
-        height: 30,
+        width: '28@s',
+        height: '28@vs',
         resizeMode: 'contain',
-        marginBottom: 5,
     },
     tabLabel: {
         paddingLeft: Size.PADDING.defaultTextPadding,
         textAlign: 'center',
-        fontWeight: '600',
+        paddingBottom: '25@vs',
+        fontWeight: '500',
     },
 });
 
