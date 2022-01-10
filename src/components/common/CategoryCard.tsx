@@ -11,6 +11,7 @@ const CategoryCard = (props: any) => {
                 source={category?.thumbnail}
                 resizeMode="cover"
                 style={[styles.styleImageBackground, containerStyle]}
+                imageStyle={styles.imgStyle}
             >
                 <Text style={styles.title}>{category?.title}</Text>
             </ImageBackground>
@@ -29,6 +30,9 @@ const styles = ScaledSheet.create({
     title: {
         color: COLORS.white,
         ...FONTS.h2,
+    },
+    imgStyle: {
+        borderRadius: SIZES.radius,
     },
 });
 
