@@ -12,7 +12,7 @@ const common = {
 const Light = {
     COLORS: {
         ...common,
-        primary: '#FBB344',
+        primary: '#42C6A5',
         secondary: '#E9ECEF',
         textPrimary: '#000000',
         textSecondary: '#607d8b',

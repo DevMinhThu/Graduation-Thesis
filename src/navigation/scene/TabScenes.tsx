@@ -2,11 +2,8 @@ import { BottomTabBarProps, createBottomTabNavigator } from '@react-navigation/b
 import { createStackNavigator } from '@react-navigation/stack';
 import Images from 'assets/images';
 import AccountView from 'feature/account/AccountView';
-import HomeDataScreen from 'feature/home/HomeDataScreen';
-import HomeDetailScreen from 'feature/home/HomeDetailScreen';
 // Screen
 import HomeScreen from 'feature/home/HomeScreen';
-import HomeUserListScreen from 'feature/home/HomeUserListScreen';
 import SearchScreen from 'feature/search/SearchScreen';
 import StyledTabBar from 'navigation/components/StyledTabBar';
 import navigationConfigs from 'navigation/config/options';
@@ -21,10 +18,6 @@ const MainTab = createBottomTabNavigator();
 const HomeStack = () => (
     <MainStack.Navigator headerMode={'none'} screenOptions={navigationConfigs} keyboardHandlingEnabled={isIos}>
         <MainStack.Screen name={TAB_NAVIGATION_ROOT.HOME_ROUTE.HOME} component={HomeScreen} />
-        <MainStack.Screen name={TAB_NAVIGATION_ROOT.HOME_ROUTE.HOME_DETAIL} component={HomeDetailScreen} />
-        <MainStack.Screen name={TAB_NAVIGATION_ROOT.HOME_ROUTE.WEB_VIEW} component={HomeDetailScreen} />
-        <MainStack.Screen name={TAB_NAVIGATION_ROOT.HOME_ROUTE.HOME_DATA} component={HomeDataScreen} />
-        <MainStack.Screen name={TAB_NAVIGATION_ROOT.HOME_ROUTE.HOME_USER_LIST} component={HomeUserListScreen} />
     </MainStack.Navigator>
 );
 
