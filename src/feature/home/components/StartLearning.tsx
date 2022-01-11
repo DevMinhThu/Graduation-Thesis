@@ -1,5 +1,5 @@
 import React from 'react';
-import { Image, ImageBackground, Text } from 'react-native';
+import { ImageBackground, Text } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
 import { TextButton } from '../../../components/common';
 import { COLORS, FONTS, images, SIZES } from '../../../constants';
@@ -13,16 +13,14 @@ const StartLearning = () => {
         >
             {/* Info */}
             <>
-                <Text style={styles.titleStartLearning}>HOW TO</Text>
-                <Text style={styles.contentStartLearning}>Make learning more effective and fun</Text>
-                <Text style={styles.author}>By Scott Harris</Text>
+                <Text style={styles.titleStartLearning}>INTRODUCE</Text>
+                <Text style={styles.contentStartLearning}>Vietnam National University of Agriculture</Text>
+                <Text style={styles.author}>By Vnua Education</Text>
             </>
-            {/* Image */}
-            <Image source={images.start_learning} resizeMode="contain" style={styles.imageDescription} />
 
             {/* Button */}
             <TextButton
-                label="Start Learning"
+                label="Start Preview"
                 contentContainerStyle={styles.buttonStartLearning}
                 labelStyle={styles.labelBtnStartLearning}
             />
@@ -52,11 +50,8 @@ const styles = ScaledSheet.create({
         marginTop: SIZES.radius,
         color: COLORS.white,
         ...FONTS.body4,
-    },
-    imageDescription: {
-        width: '100%',
-        height: '110@vs',
-        marginTop: SIZES.padding,
+        marginBottom: '130@vs',
+        // fontWeight: 'bold',
     },
     buttonStartLearning: {
         height: '40@vs',
