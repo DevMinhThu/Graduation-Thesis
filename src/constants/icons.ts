@@ -51,6 +51,7 @@ const star_1 = require('../assets/icon/star_1.png');
 const sun = require('../assets/icon/sun.png');
 const time = require('../assets/icon/time.png');
 const web_design = require('../assets/icon/web_design.png');
+const profileUser = require('../assets/images/student_2.png');
 
 export default {
     all,
@@ -105,4 +106,5 @@ export default {
     sun,
     time,
     web_design,
+    profileUser,
 };
