@@ -4,13 +4,19 @@ import { ScaledSheet } from 'react-native-size-matters';
 import { IconButton } from '../../../components/common';
 import { COLORS, FONTS, icons, SIZES } from '../../../constants';
 
-const Header = () => {
+interface IHeader {
+    nameUser: string;
+    dateTime: string;
+}
+
+const Header = (props: IHeader) => {
+    const { nameUser, dateTime } = props;
     return (
         <View style={styles.header}>
             {/* Greeting */}
             <View style={styles.greeting}>
-                <Text style={styles.nameUser}>Hello, MinhThu!</Text>
-                <Text style={styles.day}>Thursday, 9th Sept 2021</Text>
+                <Text style={styles.nameUser}>{nameUser}</Text>
+                <Text style={styles.day}>{dateTime}</Text>
             </View>
 
             {/* Notification */}

@@ -46,7 +46,8 @@ const VerticalCourseCard = (props: any) => {
 
                 {/* Price & Ratings */}
                 <View style={styles.viewPriceRating}>
-                    <Text style={styles.price}>${course.price.toFixed(2)}</Text>
+                    {/* <Text style={styles.price}>${course.price.toFixed(2)}</Text> */}
+                    <Text style={styles.price}>Rating:</Text>
                     <IconLabel
                         icon={icons.star}
                         label={course.ratings}

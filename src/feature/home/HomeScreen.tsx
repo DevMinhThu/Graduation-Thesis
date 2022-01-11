@@ -81,7 +81,7 @@ const HomeScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Header />
+            <Header nameUser="Hello, Vu Minh Thu!" dateTime="Friday, 9th Sept 2021" />
             {/* === Content === */}
             <ScrollView contentContainerStyle={styles.viewScrollView} showsVerticalScrollIndicator={false}>
                 <StartLearning />

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Image, Text, View } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
-import { COLORS, FONTS, SIZES } from '../../constants';
+import { COLORS, FONTS } from '../../constants';
 
 const IconLabel = (props: any) => {
     const { containerStyle, icon, iconStyle, label, labelStyle } = props;
@@ -24,7 +24,7 @@ const styles = ScaledSheet.create({
         tintColor: COLORS.gray30,
     },
     label: {
-        marginLeft: SIZES.base,
+        marginLeft: '5@s',
         color: COLORS.gray30,
         ...FONTS.body3,
     },
