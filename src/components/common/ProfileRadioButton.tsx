@@ -9,7 +9,7 @@ const ProfileRadioButton = (props: any) => {
 
     const circleColorAnimated = radioAnimated.interpolate({
         inputRange: [0, 17],
-        outputRange: [COLORS.gray40, COLORS.primary],
+        outputRange: [COLORS.gray40, COLORS.DEFAULT_GREEN],
     });
 
     const lineColorAnimated = radioAnimated.interpolate({
@@ -71,7 +71,7 @@ const styles = ScaledSheet.create({
     imgIcon: {
         width: '25@s',
         height: '25@vs',
-        tintColor: COLORS.primary,
+        tintColor: COLORS.DEFAULT_GREEN,
     },
     // label
     viewLabel: {

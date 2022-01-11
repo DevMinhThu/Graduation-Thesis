@@ -52,6 +52,7 @@ const sun = require('../assets/icon/sun.png');
 const time = require('../assets/icon/time.png');
 const web_design = require('../assets/icon/web_design.png');
 const profileUser = require('../assets/images/student_2.png');
+const lock_pass = require('../assets/icon/lock_pass.png');
 
 export default {
     all,
@@ -107,4 +108,5 @@ export default {
     time,
     web_design,
     profileUser,
+    lock_pass,
 };

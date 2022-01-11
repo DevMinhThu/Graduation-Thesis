@@ -45,7 +45,7 @@ const styles = ScaledSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 25,
-        backgroundColor: COLORS.primary,
+        backgroundColor: COLORS.DEFAULT_GREEN,
     },
     iconPlay: {
         width: '20@s',

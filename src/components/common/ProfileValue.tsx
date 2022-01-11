@@ -41,7 +41,7 @@ const styles = ScaledSheet.create({
     imgIcon: {
         width: '25@s',
         height: '25@vs',
-        tintColor: COLORS.primary,
+        tintColor: COLORS.DEFAULT_GREEN,
     },
     // label & value
     viewLabelValue: {
