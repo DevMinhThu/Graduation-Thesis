@@ -134,7 +134,7 @@ const styles = ScaledSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 15,
-        backgroundColor: COLORS.primary,
+        backgroundColor: COLORS.DEFAULT_GREEN,
     },
     iconCamera: {
         width: '17@s',

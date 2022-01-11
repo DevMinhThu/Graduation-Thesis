@@ -120,7 +120,7 @@ const styles = ScaledSheet.create({
     },
     price: {
         ...FONTS.h2,
-        color: COLORS.primary,
+        color: COLORS.DEFAULT_GREEN,
     },
     containerIconStar: {
         marginLeft: SIZES.base,

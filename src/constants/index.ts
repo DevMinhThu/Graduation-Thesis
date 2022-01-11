@@ -3,5 +3,19 @@ import theme, { COLORS, SIZES, FONTS, darkTheme, lightTheme, selectedTheme } fro
 import images from './images';
 import icons from './icons';
 import dummyData from './dummyData';
+import ThumbnailWelcome from './thumbnailWelcome';
 
-export { constants, theme, COLORS, SIZES, FONTS, darkTheme, lightTheme, selectedTheme, images, icons, dummyData };
+export {
+    constants,
+    theme,
+    COLORS,
+    SIZES,
+    FONTS,
+    darkTheme,
+    lightTheme,
+    selectedTheme,
+    images,
+    icons,
+    dummyData,
+    ThumbnailWelcome,
+};

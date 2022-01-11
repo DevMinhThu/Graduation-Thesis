@@ -318,6 +318,24 @@ const notificationByDays = [
     },
 ];
 
+const WELCOME_CONTENTS = [
+    {
+        image: 'DISCOVER',
+        title: 'Study Every Time and Everywhere',
+        content: 'You can study anytime, anywhere. \nAs long as you have a smartphone with an internet connection.',
+    },
+    {
+        image: 'FAVORITE',
+        title: 'Study on Your Favorite Topics',
+        content: 'We have the most popular topics',
+    },
+    {
+        image: 'GOOD_LUCK',
+        title: 'Good Luck with Your Studies',
+        content: 'Lets study and acquire a lot of knowledge.\n Good luck!',
+    },
+];
+
 export default {
     categories,
     courses_list_1,
@@ -325,4 +343,5 @@ export default {
     top_searches,
     course_details,
     notificationByDays,
+    WELCOME_CONTENTS,
 };

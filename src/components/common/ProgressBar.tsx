@@ -24,7 +24,7 @@ const styles = ScaledSheet.create({
         left: 0,
         height: '100%',
         borderRadius: 10,
-        backgroundColor: COLORS.primary,
+        backgroundColor: COLORS.DEFAULT_GREEN,
     },
 });
 

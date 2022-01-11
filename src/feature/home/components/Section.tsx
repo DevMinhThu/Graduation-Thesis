@@ -29,7 +29,7 @@ const styles = ScaledSheet.create({
     button: {
         width: '80@s',
         borderRadius: 30,
-        backgroundColor: COLORS.primary,
+        backgroundColor: COLORS.DEFAULT_GREEN,
     },
 });
 

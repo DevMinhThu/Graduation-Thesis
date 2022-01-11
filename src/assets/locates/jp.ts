@@ -53,15 +53,18 @@ export default {
     },
     authen: {
         login: {
-            placeholderEmail: 'メールアドレス',
-            placeholderPassword: 'パスワード',
-            buttonLogin: 'ログイン',
+            title: 'Welcome to \nOnlineLearning',
+            description: 'Enter your Email address for sign in. \nEnjoy your studies',
+            placeholderEmail: 'Username',
+            placeholderPassword: 'Password',
+            buttonLogin: 'Sign In',
             rememberText: 'ログイン状態を保持',
-            forgotPasswordText: 'パスワードを忘れた方はこちら',
+            forgotPasswordText: 'Forgot Password!',
             registerText: '新規会員登録はこちら',
         },
         register: {
-            title: '新規会員登録はこちら',
+            title: 'Create Account',
+            description: 'Enter your Email address and Password for sign up.',
             emailPlaceholder: 'sample@demo.webcom',
             password: 'パスワード',
             passwordPlaceholder: 'パスワード',
@@ -72,7 +75,7 @@ export default {
             cancel: 'キャンセル',
         },
         sendEmail: {
-            title: 'パスワードを忘れた',
+            title: 'Email address',
             sendButtonTitle: '次へ',
         },
     },

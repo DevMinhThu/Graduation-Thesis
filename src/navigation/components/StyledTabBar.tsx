@@ -4,6 +4,7 @@ import { StyledText, StyledTouchable } from 'components/base';
 import React from 'react';
 import { Image, View } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
+import { COLORS } from '../../constants';
 
 const StyledTabBar = ({ state, descriptors, navigation }: any) => {
     return (
@@ -46,14 +47,14 @@ const StyledTabBar = ({ state, descriptors, navigation }: any) => {
                                 source={options?.icon}
                                 style={[
                                     styles.tabIcon,
-                                    { tintColor: isFocused ? Themes.COLORS.primary : Themes.COLORS.textPrimary },
+                                    { tintColor: isFocused ? COLORS.DEFAULT_GREEN : Themes.COLORS.textPrimary },
                                 ]}
                             />
                         </View>
                         <StyledText
                             customStyle={[
                                 styles.tabLabel,
-                                { color: isFocused ? Themes.COLORS.primary : Themes.COLORS.textPrimary },
+                                { color: isFocused ? COLORS.DEFAULT_GREEN : Themes.COLORS.textPrimary },
                             ]}
                             i18nText={options?.title || ''}
                         />
@@ -86,7 +87,7 @@ const styles = ScaledSheet.create({
         width: '28@s',
         paddingTop: '10@vs',
         paddingBottom: '3@vs',
-        borderColor: Themes.COLORS.primary,
+        borderColor: COLORS.DEFAULT_GREEN,
     },
     tabIcon: {
         width: '28@s',

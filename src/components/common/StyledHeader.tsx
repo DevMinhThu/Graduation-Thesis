@@ -1,16 +1,17 @@
 import Images from 'assets/images';
-import Metrics from 'assets/metrics';
 import { Themes } from 'assets/themes';
 import { StyledIcon, StyledText, StyledTouchable } from 'components/base';
 import { goBack } from 'navigation/NavigationService';
 import React from 'react';
+import { Normalize } from 'react-i18next';
 import { StyleProp, View, ViewProps, ViewStyle } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
 import { logger } from 'utilities/helper';
+import { Resource } from 'utilities/i18next';
 
 interface HeaderProps extends ViewProps {
     isBack?: boolean;
-    title?: string;
+    title?: Normalize<Resource>;
     iconAction?: any;
     customStyle?: StyleProp<ViewStyle>;
     onPressAction?(): void;
@@ -25,7 +26,7 @@ const StyledHeader = (props: HeaderProps) => {
         iconAction,
         customStyle,
         onPressAction,
-        isShadow = true,
+        isShadow = false,
         customHandleBackPress,
         style,
     } = props;
@@ -46,15 +47,17 @@ const StyledHeader = (props: HeaderProps) => {
             <View style={styles.viewHeader}>
                 {isBack ? (
                     <StyledTouchable onPress={onBack} customStyle={styles.buttonBack}>
-                        <StyledIcon source={Images.icons.back} size={30} />
+                        <StyledIcon source={Images.icons.back} size={24} />
                     </StyledTouchable>
                 ) : (
-                    <View style={styles.buttonBack} />
+                    <View style={styles.buttonBack}>
+                        <View style={{ height: 24, width: 24 }} />
+                    </View>
                 )}
                 <StyledText i18nText={title || ' '} customStyle={styles.title} numberOfLines={1} />
                 {iconAction ? (
                     <StyledTouchable onPress={onPressAction} customStyle={styles.buttonAction}>
-                        <StyledIcon source={iconAction} size={30} customStyle={styles.iconAction} />
+                        <StyledIcon source={iconAction} size={24} customStyle={styles.iconAction} />
                     </StyledTouchable>
                 ) : (
                     <View style={styles.buttonAction} />
@@ -66,10 +69,9 @@ const StyledHeader = (props: HeaderProps) => {
 
 const styles = ScaledSheet.create({
     container: {
-        // height: '60@vs',
         backgroundColor: Themes.COLORS.white,
         justifyContent: 'flex-end',
-        paddingTop: Metrics.safeTopPadding,
+        paddingTop: '20@vs',
     },
     viewHeader: {
         flexDirection: 'row',
@@ -80,20 +82,19 @@ const styles = ScaledSheet.create({
         paddingHorizontal: '20@s',
     },
     buttonBack: {
-        width: '25@vs',
-        height: '25@vs',
         justifyContent: 'center',
         alignItems: 'center',
+        padding: '5@ms',
     },
     title: {
-        fontSize: '20@ms',
+        fontSize: '18@ms',
         fontWeight: 'bold',
         maxWidth: '80%',
         color: Themes.COLORS.black,
     },
     buttonAction: {
-        width: '25@vs',
-        height: '25@vs',
+        width: '29@vs',
+        height: '29@vs',
         justifyContent: 'center',
         alignItems: 'center',
     },
