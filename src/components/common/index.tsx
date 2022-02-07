@@ -8,6 +8,10 @@ import CategoryCard from './CategoryCard';
 import ProgressBar from './ProgressBar';
 import ProfileValue from './ProfileValue';
 import ProfileRadioButton from './ProfileRadioButton';
+import FilterModal from './FilterModal';
+import ClassTypeOption from './ClassTypeOption';
+import ClassLevelOption from './ClassLevelOption';
+import TwoPointSlider from './TwoPointSlider';
 
 export {
     IconButton,
@@ -20,4 +24,8 @@ export {
     ProgressBar,
     ProfileValue,
     ProfileRadioButton,
+    FilterModal,
+    ClassTypeOption,
+    ClassLevelOption,
+    TwoPointSlider,
 };

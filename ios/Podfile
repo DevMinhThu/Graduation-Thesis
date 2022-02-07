@@ -16,6 +16,8 @@ pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenIn
 
   pod 'RNSVG', :path => '../node_modules/react-native-svg'
 
+  pod 'RNSharedElement', :path => '../node_modules/react-native-shared-element'
+
   target 'OnlineLearningTests' do
     inherit! :complete
     # Pods for testing

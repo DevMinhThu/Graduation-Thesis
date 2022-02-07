@@ -1,5 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { CategoryCard, TextButton } from 'components/common';
+import { TAB_NAVIGATION_ROOT } from 'navigation/config/routes';
+import { navigate } from 'navigation/NavigationService';
 import React, { FunctionComponent, useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
@@ -53,12 +55,19 @@ const SearchScreen: FunctionComponent = () => {
                     contentContainerStyle={styles.containerFlatList}
                     renderItem={({ item, index }) => (
                         <CategoryCard
+                            sharedElementPrefix={TAB_NAVIGATION_ROOT.SEARCH_ROUTE.SEARCH}
                             category={item}
                             containerStyle={[
                                 styles.itemBrowseCategories,
                                 { marginLeft: (index + 1) / 2 === 0 ? SIZES.radius : SIZES.padding },
                             ]}
                             labelStyle={styles.labelOption}
+                            onPress={() =>
+                                navigate(TAB_NAVIGATION_ROOT.HOME_ROUTE.COURSE_LIST, {
+                                    category: item,
+                                    sharedElementPrefix: TAB_NAVIGATION_ROOT.SEARCH_ROUTE.SEARCH,
+                                })
+                            }
                         />
                     )}
                 />

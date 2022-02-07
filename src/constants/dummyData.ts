@@ -2,17 +2,17 @@
 const categories = [
     {
         id: 0,
-        title: 'Mobile \nDesign',
+        title: 'Mobile Design',
         thumbnail: require('../assets/images/bg_2.png'),
     },
     {
         id: 1,
-        title: '3D \nModeling',
+        title: '3D Modeling',
         thumbnail: require('../assets/images/bg_3.png'),
     },
     {
         id: 2,
-        title: 'Web \nDesigning',
+        title: 'Web Designing',
         thumbnail: require('../assets/images/bg_5.png'),
     },
     {

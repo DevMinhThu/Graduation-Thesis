@@ -1,3 +1,5 @@
+import { TAB_NAVIGATION_ROOT } from 'navigation/config/routes';
+import { navigate } from 'navigation/NavigationService';
 import React from 'react';
 import { ScrollView, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
@@ -43,11 +45,18 @@ const HomeScreen = () => {
                     contentContainerStyle={styles.containerCategories}
                     renderItem={({ item, index }) => (
                         <CategoryCard
+                            sharedElementPrefix={TAB_NAVIGATION_ROOT.HOME_ROUTE.HOME}
                             category={item}
                             containerStyle={{
                                 marginLeft: index === 0 ? SIZES.padding : SIZES.base,
                                 marginRight: index === dummyData.categories.length - 1 ? SIZES.padding : 0,
                             }}
+                            onPress={() =>
+                                navigate(TAB_NAVIGATION_ROOT.HOME_ROUTE.COURSE_LIST, {
+                                    category: item,
+                                    sharedElementPrefix: TAB_NAVIGATION_ROOT.HOME_ROUTE.HOME,
+                                })
+                            }
                         />
                     )}
                 />

@@ -17,7 +17,7 @@ const VerticalCourseCard = (props: any) => {
             >
                 <View style={styles.contentImage}>
                     <Image
-                        source={icons.favourite}
+                        source={icons.favourite_outline}
                         resizeMode="contain"
                         style={[
                             styles.iconHeart,
