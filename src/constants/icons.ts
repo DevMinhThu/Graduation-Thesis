@@ -53,8 +53,10 @@ const time = require('../assets/icon/time.png');
 const web_design = require('../assets/icon/web_design.png');
 const profileUser = require('../assets/images/student_2.png');
 const lock_pass = require('../assets/icon/lock_pass.png');
+const ic_back = require('../assets/icon/ic_back.png');
 
 export default {
+    ic_back,
     all,
     animation,
     back,

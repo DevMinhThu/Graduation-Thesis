@@ -14,10 +14,7 @@ const APP_ROUTE = {
 const HOME_ROUTE = {
     ROOT: 'HOME_ROOT',
     HOME: 'HOME',
-    HOME_DETAIL: 'HOME_DETAIL',
-    WEB_VIEW: 'WEB_VIEW',
-    HOME_DATA: 'HOME_DATA',
-    HOME_USER_LIST: 'HOME_USER_LIST',
+    COURSE_LIST: 'COURSE_LIST',
 };
 
 const SETTING_ROUTE = {
@@ -34,6 +31,7 @@ const ACCOUNT_ROUTE = {
 
 const SEARCH_ROUTE = {
     ROOT: 'SEARCH_ROUTE',
+    SEARCH: 'SEARCH',
 };
 
 const TAB_NAVIGATION_ROOT = {

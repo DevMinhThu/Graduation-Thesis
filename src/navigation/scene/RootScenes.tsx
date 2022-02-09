@@ -1,19 +1,57 @@
-import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
-import { Host } from 'react-native-portalize';
 import { useAppSelector } from 'app-redux/hooks';
+import CourseListScreen from 'feature/course/CourseListScreen';
+import React from 'react';
+import { Easing } from 'react-native';
+import { Host } from 'react-native-portalize';
+import { createSharedElementStackNavigator } from 'react-navigation-shared-element';
 import { isIos } from 'utilities/helper';
-import { APP_ROUTE } from '../config/routes';
 import navigationConfigs from '../config/options';
-import MainTabContainer from './TabScenes';
+import { APP_ROUTE, TAB_NAVIGATION_ROOT } from '../config/routes';
 import AuthStack from './AuthScenes';
+import MainTabContainer from './TabScenes';
 
-const MainStack = createStackNavigator();
+const MainStack = createSharedElementStackNavigator();
+const options = {
+    gestureEnabled: false,
+    transitionSpec: {
+        open: {
+            animation: 'timing',
+            config: {
+                duration: 400,
+                easing: Easing.inOut(Easing.ease),
+            },
+        },
+        close: {
+            animation: 'timing',
+            config: {
+                duration: 400,
+                easing: Easing.inOut(Easing.ease),
+            },
+        },
+    },
+    cardStyleInterpolator: ({ current: { progress } }: any) => {
+        return {
+            cardStyle: {
+                opacity: progress,
+            },
+        };
+    },
+};
 
 const AppStack = () => (
     <Host>
-        <MainStack.Navigator keyboardHandlingEnabled={isIos} headerMode={'none'} screenOptions={navigationConfigs}>
+        <MainStack.Navigator
+            keyboardHandlingEnabled={isIos}
+            headerMode={'none'}
+            screenOptions={{ ...navigationConfigs, useNativeDriver: true }}
+            detachInactiveScreens={false}
+        >
             <MainStack.Screen name={APP_ROUTE.MAIN_TAB} component={MainTabContainer} />
+            <MainStack.Screen
+                name={TAB_NAVIGATION_ROOT.HOME_ROUTE.COURSE_LIST}
+                component={CourseListScreen}
+                options={() => options}
+            />
         </MainStack.Navigator>
     </Host>
 );
