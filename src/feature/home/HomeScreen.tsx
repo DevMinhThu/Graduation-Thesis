@@ -1,4 +1,4 @@
-import { TAB_NAVIGATION_ROOT } from 'navigation/config/routes';
+import { APP_ROUTE, TAB_NAVIGATION_ROOT } from 'navigation/config/routes';
 import { navigate } from 'navigation/NavigationService';
 import React from 'react';
 import { ScrollView, View } from 'react-native';
@@ -27,6 +27,7 @@ const HomeScreen = () => {
                             marginRight: index === dummyData.courses_list_1.length - 1 ? SIZES.padding : 0,
                         }}
                         course={item}
+                        onPress={() => navigate(APP_ROUTE.COURSE_DETAIL, { selectedCourse: item })}
                     />
                 )}
             />
@@ -80,6 +81,7 @@ const HomeScreen = () => {
                                 marginVertical: SIZES.padding,
                                 marginTop: index === 0 ? SIZES.radius : SIZES.padding,
                             }}
+                            onPress={() => navigate(APP_ROUTE.COURSE_DETAIL, { selectedCourse: item })}
                         />
                     )}
                     ItemSeparatorComponent={() => <LineDivider lineStyle={styles.lineDivider} />}

@@ -12,6 +12,7 @@ import FilterModal from './FilterModal';
 import ClassTypeOption from './ClassTypeOption';
 import ClassLevelOption from './ClassLevelOption';
 import TwoPointSlider from './TwoPointSlider';
+import IconLabelButton from './IconLabelButton';
 
 export {
     IconButton,
@@ -28,4 +29,5 @@ export {
     ClassTypeOption,
     ClassLevelOption,
     TwoPointSlider,
+    IconLabelButton,
 };
