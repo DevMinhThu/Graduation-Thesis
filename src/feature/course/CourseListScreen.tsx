@@ -1,4 +1,7 @@
+/* eslint-disable consistent-return */
 /* eslint-disable react-hooks/rules-of-hooks */
+import { APP_ROUTE } from 'navigation/config/routes';
+import { navigate } from 'navigation/NavigationService';
 import React, { useRef } from 'react';
 import { Animated, FlatList, View } from 'react-native';
 import { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
@@ -37,6 +40,7 @@ const CourseListScreen = ({ route }: any) => {
                             marginVertical: SIZES.padding,
                             marginTop: index === 0 ? SIZES.radius : SIZES.padding,
                         }}
+                        onPress={() => navigate(APP_ROUTE.COURSE_DETAIL, { selectedCourse: item })}
                     />
                 )}
                 ItemSeparatorComponent={() => <LineDivider lineStyle={styles.lineDivider} />}
@@ -55,16 +59,18 @@ const CourseListScreen = ({ route }: any) => {
     );
 };
 
-CourseListScreen.sharedElements = (route: { params: { category: any; sharedElementPrefix: any } }) => {
-    const { category, sharedElementPrefix } = route?.params;
-    return [
-        {
-            id: `${sharedElementPrefix}-CategoryCard-Bg-${category?.id}`,
-        },
-        {
-            id: `${sharedElementPrefix}-CategoryCard-Title-${category?.id}`,
-        },
-    ];
+CourseListScreen.sharedElements = (route: { params: { category: any; sharedElementPrefix: any } }, otherRoute: any) => {
+    if (otherRoute.name === 'Dashboard') {
+        const { category, sharedElementPrefix } = route?.params;
+        return [
+            {
+                id: `${sharedElementPrefix}-CategoryCard-Bg-${category?.id}`,
+            },
+            {
+                id: `${sharedElementPrefix}-CategoryCard-Title-${category?.id}`,
+            },
+        ];
+    }
 };
 
 const styles = ScaledSheet.create({

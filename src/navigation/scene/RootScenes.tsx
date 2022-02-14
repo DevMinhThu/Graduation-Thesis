@@ -1,4 +1,5 @@
 import { useAppSelector } from 'app-redux/hooks';
+import CourseDetails from 'feature/course/components/CourseDetails';
 import CourseListScreen from 'feature/course/CourseListScreen';
 import React from 'react';
 import { Easing } from 'react-native';
@@ -52,6 +53,7 @@ const AppStack = () => (
                 component={CourseListScreen}
                 options={() => options}
             />
+            <MainStack.Screen name={APP_ROUTE.COURSE_DETAIL} component={CourseDetails} />
         </MainStack.Navigator>
     </Host>
 );

@@ -109,12 +109,12 @@ const top_searches = [
 
 const course_details = {
     id: 0,
-    title: 'The Ultimate Ui/Ux Course Beginner to Advanced',
+    title: 'Algorithms and Data Structures Tutorial - Full Course',
     number_of_students: '33.5k Students',
-    duration: '2h 30m',
+    duration: '5h 22m',
     instructor: {
         name: 'VMT',
-        title: 'Full Stack Programmer',
+        title: 'Mobile Develop',
     },
     videos: [
         {
@@ -218,20 +218,6 @@ const course_details = {
                     posted_on: '4 days ago',
                     comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
                 },
-                {
-                    id: 2,
-                    profile: require('../assets/images/student_1.png'),
-                    name: 'VMT',
-                    posted_on: '4 days ago',
-                    comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                },
-                {
-                    id: 3,
-                    profile: require('../assets/images/student_1.png'),
-                    name: 'VMT',
-                    posted_on: '4 days ago',
-                    comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                },
             ],
         },
         {
@@ -246,20 +232,6 @@ const course_details = {
             replies: [
                 {
                     id: 0,
-                    profile: require('../assets/images/student_1.png'),
-                    name: 'VMT',
-                    posted_on: '7 days ago',
-                    comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                },
-                {
-                    id: 1,
-                    profile: require('../assets/images/student_1.png'),
-                    name: 'VMT',
-                    posted_on: '7 days ago',
-                    comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                },
-                {
-                    id: 2,
                     profile: require('../assets/images/student_1.png'),
                     name: 'VMT',
                     posted_on: '7 days ago',

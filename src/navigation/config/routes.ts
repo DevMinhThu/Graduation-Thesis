@@ -9,6 +9,7 @@ const AUTHENTICATE_ROUTE = {
 
 const APP_ROUTE = {
     MAIN_TAB: 'MAIN_TAB',
+    COURSE_DETAIL: 'COURSE_DETAIL',
 };
 
 const HOME_ROUTE = {

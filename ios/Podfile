@@ -18,6 +18,8 @@ pod 'Permission-LocationWhenInUse', :path => "#{permissions_path}/LocationWhenIn
 
   pod 'RNSharedElement', :path => '../node_modules/react-native-shared-element'
 
+  pod 'react-native-video', :path => '../node_modules/react-native-video'
+
   target 'OnlineLearningTests' do
     inherit! :complete
     # Pods for testing
