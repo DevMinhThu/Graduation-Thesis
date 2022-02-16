@@ -18,7 +18,9 @@ const HorizontalCourseCard = (props: any) => {
                 </View>
                 {/* info */}
                 <View style={styles.viewContent}>
-                    <Text style={styles.titleCourse}>{course.title}</Text>
+                    <Text numberOfLines={2} style={styles.titleCourse}>
+                        {course.title}
+                    </Text>
                     <IconLabel icon={icons.time} label={course.duration} containerStyle={styles.iconTime} />
                 </View>
             </View>

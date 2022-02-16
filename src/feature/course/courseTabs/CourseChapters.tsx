@@ -2,18 +2,18 @@ import React from 'react';
 import { FlatList, Image, ScrollView, Text, View } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
 import { IconLabel, LineDivider, TextButton, VerticalCourseCard } from '../../../components/common';
-import { COLORS, dummyData, FONTS, icons, images, SIZES } from '../../../constants';
+import { COLORS, dummyData, FONTS, icons, SIZES } from '../../../constants';
 
 const CourseChapters = (props: any) => {
     const { selectedCourse } = props;
-
-    console.log('selectedCourse', selectedCourse);
 
     const renderHeader = () => {
         return (
             <View style={styles.containerHeader}>
                 {/* Title */}
-                <Text style={styles.titleCourseDetail}>{selectedCourse?.title}</Text>
+                <Text numberOfLines={2} style={styles.titleCourseDetail}>
+                    {selectedCourse?.title}
+                </Text>
                 {/* Students & Duration */}
                 <View style={styles.containerStudentsDuration}>
                     <Text style={styles.numberStudents}>{dummyData?.course_details?.number_of_students}</Text>
@@ -28,15 +28,15 @@ const CourseChapters = (props: any) => {
                 {/* Instructor */}
                 <View style={styles.containerInstructor}>
                     {/* Profile Photo */}
-                    <Image source={images.profile} style={styles.imgProfile} />
+                    <Image source={{ uri: selectedCourse?.imageProfile }} style={styles.imgProfile} />
                     {/* Name & Title */}
                     <View style={styles.containerNameTitle}>
-                        <Text style={styles.nameAuthor}>{dummyData?.course_details?.instructor?.name}</Text>
-                        <Text style={styles.titleInstructor}>{dummyData?.course_details?.instructor?.title}</Text>
+                        <Text style={styles.nameAuthor}>{selectedCourse?.instructor}</Text>
+                        <Text style={styles.titleInstructor}>{selectedCourse?.subscriber}</Text>
                     </View>
                     {/* Text Button */}
                     <TextButton
-                        label="Follow +"
+                        label="🔔"
                         contentContainerStyle={styles.bgButtonFollow}
                         labelStyle={styles.titleFollow}
                     />
@@ -156,12 +156,12 @@ const styles = ScaledSheet.create({
         ...FONTS.body3,
     },
     bgButtonFollow: {
-        width: '80@s',
+        width: '35@s',
         height: '35@vs',
-        borderRadius: 20,
+        borderRadius: 50,
     },
     titleFollow: {
-        ...FONTS.h3,
+        ...FONTS.h2,
     },
     // Line divider
     lineDivider: {

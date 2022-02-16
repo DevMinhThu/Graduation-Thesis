@@ -7,7 +7,7 @@ import { Animated, FlatList, View } from 'react-native';
 import { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
 import { ScaledSheet } from 'react-native-size-matters';
 import { LineDivider, VerticalCourseCard } from '../../components/common';
-import { COLORS, dummyData, FONTS, SIZES } from '../../constants';
+import { COLORS, FONTS, SIZES } from '../../constants';
 import HeaderCourseListScreen from './components/HeaderCourseListScreen';
 import ListCourseHeader from './components/ListCourseHeader';
 
@@ -25,14 +25,14 @@ const CourseListScreen = ({ route }: any) => {
         return (
             <AnimatedFlatList
                 ref={flatListRef}
-                data={dummyData.courses_list_2}
+                data={category?.listCourses}
                 keyExtractor={(item: any) => `ListCourse-${item.id}`}
                 contentContainerStyle={styles.containerListCourse}
                 showsVerticalScrollIndicator={false}
                 scrollEventThrottle={16}
                 keyboardDismissMode="on-drag"
                 onScroll={() => onScroll}
-                ListHeaderComponent={<ListCourseHeader />}
+                ListHeaderComponent={<ListCourseHeader category={category} />}
                 renderItem={({ item, index }) => (
                     <VerticalCourseCard
                         course={item}
