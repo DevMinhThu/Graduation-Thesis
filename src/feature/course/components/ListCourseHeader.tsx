@@ -6,7 +6,8 @@ import { ScaledSheet } from 'react-native-size-matters';
 import { COLORS, FONTS, SIZES, icons } from '../../../constants';
 import { IconButton } from '../../../components/common';
 
-const ListCourseHeader = () => {
+const ListCourseHeader = (props: any) => {
+    const { category } = props;
     const modalizeAction = ModalizeAction();
 
     const openModalFilterModal = () => {
@@ -16,7 +17,7 @@ const ListCourseHeader = () => {
     return (
         <View style={styles.containerHeaderListCourse}>
             {/* Result number */}
-            <Text style={styles.numberResult}>6,686 Results</Text>
+            <Text style={styles.numberResult}>{`${category?.numberResult} Results`}</Text>
             {/* Filter Btn */}
             <IconButton icon={icons.filter} containerStyle={styles.iconFilter} onPress={openModalFilterModal} />
         </View>

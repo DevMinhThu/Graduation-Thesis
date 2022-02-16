@@ -1,9 +1,8 @@
-import { goBack } from 'navigation/NavigationService';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Animated, Keyboard, Text, TouchableOpacity, View } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
-import { IconButton, LineDivider } from '../../../components/common';
-import { COLORS, constants, FONTS, icons, SIZES } from '../../../constants';
+import { LineDivider } from '../../../components/common';
+import { COLORS, constants, FONTS, SIZES } from '../../../constants';
 import CourseChapters from '../courseTabs/CourseChapters';
 import CourseDiscussions from '../courseTabs/CourseDiscussions';
 import CourseFiles from '../courseTabs/CourseFiles';
@@ -61,7 +60,7 @@ const Tabs = ({ scrollX, onTabPress }: any) => {
 
 const CourseDetails = ({ route }: any) => {
     const { selectedCourse } = route.params;
-    const [playVideo, setPlayVideo] = useState(false);
+    const [playVideo] = useState(false);
 
     // tab-horizontal
     const flatListRef = useRef();
@@ -72,38 +71,6 @@ const CourseDetails = ({ route }: any) => {
             offset: tabIndex * SIZES.width,
         });
     }, []);
-
-    // header
-    const renderHeaderComponent = () => {
-        return (
-            <>
-                {/* back */}
-                <View style={styles.containerHeaderComponent}>
-                    <IconButton
-                        icon={icons.ic_back}
-                        iconStyle={styles.iconBack}
-                        containerStyle={styles.bgIconBack}
-                        onPress={() => goBack()}
-                    />
-                </View>
-                {/* share */}
-                <View style={{ flexDirection: 'row' }}>
-                    <IconButton
-                        icon={icons.media}
-                        iconStyle={{ tintColor: COLORS.white }}
-                        containerStyle={styles.bgIconMedia}
-                    />
-                </View>
-            </>
-        );
-    };
-
-    const renderHeader = () => {
-        if (playVideo) {
-            return <View style={styles.bgHeaderVideo}>{renderHeaderComponent()}</View>;
-        }
-        return <View style={styles.containerHeaderBar}>{renderHeaderComponent()}</View>;
-    };
 
     const renderContent = () => {
         return (
@@ -149,13 +116,11 @@ const CourseDetails = ({ route }: any) => {
 
     return (
         <View style={styles.container}>
-            {/* Header Bar */}
-            {renderHeader()}
             {/* Video */}
             <VideoDetailsScreen
                 playVideo={playVideo}
                 selectedCourse={selectedCourse}
-                onPress={() => setPlayVideo(true)}
+                // onPress={() => setPlayVideo(true)}
             />
             {/* Content */}
             {renderContent()}
@@ -167,47 +132,6 @@ const styles = ScaledSheet.create({
     container: {
         flex: 1,
         backgroundColor: COLORS.white,
-    },
-    // header bar
-    containerHeaderBar: {
-        position: 'absolute',
-        top: SIZES.height > 800 ? 40 : 20,
-        left: 0,
-        right: 0,
-        flexDirection: 'row',
-        paddingHorizontal: SIZES.padding,
-        zIndex: 1,
-    },
-    bgHeaderVideo: {
-        flexDirection: 'row',
-        paddingHorizontal: SIZES.radius,
-        paddingBottom: SIZES.base,
-        height: 85,
-        backgroundColor: COLORS.black,
-        alignItems: 'flex-end',
-    },
-    // header component
-    containerHeaderComponent: {
-        flex: 1,
-    },
-    iconBack: {
-        width: '25@s',
-        height: '25@vs',
-        tintColor: COLORS.black,
-    },
-    bgIconBack: {
-        width: '35@s',
-        height: '35@vs',
-        alignItems: 'center',
-        justifyContent: 'center',
-        borderRadius: 20,
-        backgroundColor: COLORS.white,
-    },
-    bgIconMedia: {
-        width: '35@s',
-        height: '35@vs',
-        alignItems: 'center',
-        justifyContent: 'center',
     },
     // tab
     containerTabs: {

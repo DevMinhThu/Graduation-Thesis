@@ -10,7 +10,7 @@ const VerticalCourseCard = (props: any) => {
         <TouchableOpacity style={[styles.viewCourse, containerStyle]} onPress={onPress}>
             {/* thumbnail */}
             <ImageBackground
-                source={course.thumbnail}
+                source={{ uri: course.thumbnail }}
                 resizeMode="cover"
                 style={styles.styleImageBackground}
                 imageStyle={{ borderRadius: SIZES.radius }}
@@ -30,7 +30,9 @@ const VerticalCourseCard = (props: any) => {
             {/* Details */}
             <View style={styles.containerDetail}>
                 {/* Title */}
-                <Text style={styles.title}>{course.title}</Text>
+                <Text numberOfLines={3} style={styles.title}>
+                    {course.title}
+                </Text>
 
                 {/* Instructor & Duration */}
                 <View style={styles.viewCourseInfo}>
@@ -46,7 +48,6 @@ const VerticalCourseCard = (props: any) => {
 
                 {/* Price & Ratings */}
                 <View style={styles.viewPriceRating}>
-                    {/* <Text style={styles.price}>${course.price.toFixed(2)}</Text> */}
                     <Text style={styles.price}>Rating:</Text>
                     <IconLabel
                         icon={icons.star}

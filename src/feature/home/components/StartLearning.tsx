@@ -20,7 +20,7 @@ const StartLearning = () => {
 
             {/* Button */}
             <TextButton
-                label="Start Preview"
+                label="Welcome Everyone 💖"
                 contentContainerStyle={styles.buttonStartLearning}
                 labelStyle={styles.labelBtnStartLearning}
             />
