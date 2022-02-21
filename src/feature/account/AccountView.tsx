@@ -2,6 +2,7 @@ import { StyledText } from 'components/base';
 import React, { useState } from 'react';
 import { Image, ScrollView, TouchableOpacity, View } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
+import { isIos } from 'utilities/helper';
 import { IconButton, LineDivider, ProfileRadioButton, ProfileValue, ProgressBar } from '../../components/common';
 import { COLORS, FONTS, icons, SIZES } from '../../constants';
 
@@ -86,7 +87,7 @@ const styles = ScaledSheet.create({
     // header
     header: {
         flexDirection: 'row',
-        marginTop: '50@vs',
+        marginTop: isIos ? '50@vs' : '25@vs',
         paddingHorizontal: SIZES.padding,
         justifyContent: 'space-between',
     },

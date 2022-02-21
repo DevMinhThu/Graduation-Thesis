@@ -1,6 +1,7 @@
 import React from 'react';
 import { Text, View } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
+import { isIos } from 'utilities/helper';
 import { IconButton } from '../../../components/common';
 import { COLORS, FONTS, icons, SIZES } from '../../../constants';
 
@@ -28,7 +29,7 @@ const Header = (props: IHeader) => {
 const styles = ScaledSheet.create({
     header: {
         flexDirection: 'row',
-        marginTop: '50@vs',
+        marginTop: isIos ? '50@vs' : '25@vs',
         marginBottom: '10@vs',
         paddingHorizontal: SIZES.padding,
         alignItems: 'center',

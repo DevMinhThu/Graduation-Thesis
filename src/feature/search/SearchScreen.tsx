@@ -6,6 +6,7 @@ import React, { FunctionComponent, useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { ScaledSheet } from 'react-native-size-matters';
+import { isIos } from 'utilities/helper';
 import { COLORS, dummyData, FONTS, SIZES } from '../../constants';
 import SearchBar from './components/SearchBar';
 
@@ -136,7 +137,7 @@ const styles = ScaledSheet.create({
     positionSearchBar: {
         paddingHorizontal: SIZES.padding,
         height: '50@vs',
-        marginTop: '50@vs',
+        marginTop: isIos ? '50@vs' : '25@vs',
     },
     styleSearchBar: {
         flex: 1,

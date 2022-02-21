@@ -118,7 +118,7 @@ const CourseDiscussions = () => {
                 <TextInput
                     style={styles.styleTextInput}
                     multiline
-                    placeholder="Type Something"
+                    placeholder="Type Something ..."
                     placeholderTextColor={COLORS.gray80}
                     onContentSizeChange={(event) => {
                         const { height } = event.nativeEvent.contentSize;
@@ -187,6 +187,7 @@ const styles = ScaledSheet.create({
         flex: 1,
         marginRight: SIZES.base,
         ...FONTS.body3,
+        paddingTop: '5@vs',
     },
     iconSend: {
         height: '25@vs',
