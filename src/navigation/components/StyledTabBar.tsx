@@ -4,6 +4,7 @@ import { StyledText, StyledTouchable } from 'components/base';
 import React from 'react';
 import { Image, View } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
+import { isIos } from 'utilities/helper';
 import { COLORS } from '../../constants';
 
 const StyledTabBar = ({ state, descriptors, navigation }: any) => {
@@ -97,7 +98,7 @@ const styles = ScaledSheet.create({
     tabLabel: {
         paddingLeft: Size.PADDING.defaultTextPadding,
         textAlign: 'center',
-        paddingBottom: '25@vs',
+        paddingBottom: isIos ? '25@vs' : '10@vs',
         fontWeight: '500',
     },
 });

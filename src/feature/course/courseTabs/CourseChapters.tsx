@@ -1,3 +1,5 @@
+import { APP_ROUTE } from 'navigation/config/routes';
+import { navigate } from 'navigation/NavigationService';
 import React from 'react';
 import { FlatList, Image, ScrollView, Text, View } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
@@ -84,6 +86,7 @@ const CourseChapters = (props: any) => {
                                 marginVertical: SIZES.padding,
                                 marginTop: index === 0 ? SIZES.radius : SIZES.padding,
                             }}
+                            onPress={() => navigate(APP_ROUTE.COURSE_DETAIL, { selectedCourse: item })}
                         />
                     )}
                     ItemSeparatorComponent={() => <LineDivider />}
