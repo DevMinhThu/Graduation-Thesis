@@ -1,6 +1,7 @@
 import { useAppSelector } from 'app-redux/hooks';
 import CourseDetails from 'feature/course/components/CourseDetails';
 import CourseListScreen from 'feature/course/CourseListScreen';
+import ViroSceneAR from 'feature/viroAR';
 import React from 'react';
 import { Easing } from 'react-native';
 import { Host } from 'react-native-portalize';
@@ -54,6 +55,7 @@ const AppStack = () => (
                 options={() => options}
             />
             <MainStack.Screen name={APP_ROUTE.COURSE_DETAIL} component={CourseDetails} />
+            <MainStack.Screen name={APP_ROUTE.VIRO_AR} component={ViroSceneAR} />
         </MainStack.Navigator>
     </Host>
 );

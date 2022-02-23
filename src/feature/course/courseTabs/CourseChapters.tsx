@@ -18,7 +18,7 @@ const CourseChapters = (props: any) => {
                 </Text>
                 {/* Students & Duration */}
                 <View style={styles.containerStudentsDuration}>
-                    <Text style={styles.numberStudents}>{dummyData?.course_details?.number_of_students}</Text>
+                    <Text style={styles.numberStudents}>{selectedCourse?.number_of_students}</Text>
                     <IconLabel
                         icon={icons.time}
                         label={selectedCourse?.duration}
@@ -51,10 +51,8 @@ const CourseChapters = (props: any) => {
         return (
             <View style={styles.containerDescription}>
                 <Text style={styles.titleDescription}>Description</Text>
-                <Text style={styles.contentDescription}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima quas vero doloribus suscipit
-                    voluptatem, laboriosam consequatur mollitia eaque in fugiat! Alias non, delectus hic esse mollitia
-                    rem repellat deleniti fugit!
+                <Text numberOfLines={5} style={styles.contentDescription}>
+                    {selectedCourse?.description}
                 </Text>
             </View>
         );
@@ -70,7 +68,7 @@ const CourseChapters = (props: any) => {
                 </View>
                 {/* Popular Courses List */}
                 <FlatList
-                    data={dummyData.courses_list_2}
+                    data={dummyData.courses_list_vertical}
                     listKey="PopularCourses"
                     scrollEnabled={false}
                     keyExtractor={(item: any) => `PopularCourses-${item.id}`}
@@ -219,7 +217,6 @@ const styles = ScaledSheet.create({
     btnSeeAll: {
         width: '80@s',
         borderRadius: 30,
-        backgroundColor: COLORS.primary,
     },
     // Description
     containerDescription: {

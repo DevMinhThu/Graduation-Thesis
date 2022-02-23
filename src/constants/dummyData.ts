@@ -10,6 +10,7 @@ const categories = [
                 id: 0,
                 title: 'Best 20 Example UI/UX Design For Mobile App | UI/UX Animation Design',
                 duration: '8m 01s',
+                number_of_students: '33.5k Students',
                 instructor: 'NAM Design',
                 ratings: 4.9,
                 is_favourite: true,
@@ -19,11 +20,87 @@ const categories = [
                     'https://yt3.ggpht.com/ytc/AKedOLR-6UY-sLxYIG_ECXt5uQfCKvbM13cKiWlJ_JsQIg=s68-c-k-c0x00ffffff-no-rj',
                 videoID: 'd6xn5uflUjg',
                 subscriber: '5,09 Tr subscriber',
+                description:
+                    'This 20 Example UI/UX Design For Mobile App got pick from Dribble. You can follow the designer on link below, thank you & hope you enjoy it, cheers :)',
+                students: [
+                    {
+                        id: 0,
+                        name: 'Student 1',
+                        thumbnail: require('../assets/images/student_1.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'Student 2',
+                        thumbnail: require('../assets/images/student_2.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                    {
+                        id: 3,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                ],
+                files: [
+                    {
+                        id: 0,
+                        name: 'UI Fundamentals',
+                        author: 'Shared by VMT',
+                        upload_date: '13th Sep 2021',
+                        thumbnail: require('../assets/images/pdf.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'UX Checklist',
+                        author: 'Shared by VMT',
+                        upload_date: '11th Sep 2021',
+                        thumbnail: require('../assets/images/doc.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Sketch File',
+                        author: 'Shared by VMT',
+                        upload_date: '7th Sep 2021',
+                        thumbnail: require('../assets/images/sketch.png'),
+                    },
+                ],
+                discussions: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_2.png'),
+                        name: 'VMT',
+                        no_of_comments: '11 comments',
+                        no_of_likes: '72 likes',
+                        posted_on: '5 days ago',
+                        comment:
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        replies: [
+                            {
+                                id: 0,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                            {
+                                id: 1,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                        ],
+                    },
+                ],
             },
             {
                 id: 1,
                 title: 'Excellent Top 10 Example Mobile App Design | UI/UX Animation Design',
                 duration: '4m 15s',
+                number_of_students: '33.5k Students',
                 instructor: 'NAM Design',
                 ratings: 4.9,
                 is_favourite: true,
@@ -33,11 +110,70 @@ const categories = [
                     'https://yt3.ggpht.com/ytc/AKedOLR-6UY-sLxYIG_ECXt5uQfCKvbM13cKiWlJ_JsQIg=s68-c-k-c0x00ffffff-no-rj',
                 videoID: 'IrRHlMIykwk',
                 subscriber: '5,09 Tr subscriber',
+                description:
+                    'we will share the Excellent Top 10 Example Mobile App Design. As we know the new mobile app trends focus specifically on increasing consumer engagement, enhancing experience, and attracting more users. And that why we share this Mobile App Design topic with you, so you guys can get more examples.',
+                students: [
+                    {
+                        id: 0,
+                        name: 'Student 1',
+                        thumbnail: require('../assets/images/student_1.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'Student 2',
+                        thumbnail: require('../assets/images/student_2.png'),
+                    },
+                ],
+                files: [
+                    {
+                        id: 0,
+                        name: 'UI Fundamentals',
+                        author: 'Shared by VMT',
+                        upload_date: '13th Sep 2021',
+                        thumbnail: require('../assets/images/pdf.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'UX Checklist',
+                        author: 'Shared by VMT',
+                        upload_date: '11th Sep 2021',
+                        thumbnail: require('../assets/images/doc.png'),
+                    },
+                ],
+                discussions: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_2.png'),
+                        name: 'VMT',
+                        no_of_comments: '11 comments',
+                        no_of_likes: '72 likes',
+                        posted_on: '5 days ago',
+                        comment:
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        replies: [
+                            {
+                                id: 0,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                            {
+                                id: 1,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                        ],
+                    },
+                ],
             },
             {
                 id: 2,
                 title: 'Food App UI Design | UI/UX Design using Adobe XD | UI/UX Animation Design for beginners',
                 duration: '7m 51s',
+                number_of_students: '33.5k Students',
                 instructor: 'PixelPro',
                 ratings: 4.9,
                 is_favourite: true,
@@ -47,6 +183,81 @@ const categories = [
                     'https://yt3.ggpht.com/ytc/AKedOLS-BFc1YdczbVwYrdF7TT1G3VlHDjuwHAYAPVW-=s176-c-k-c0x00ffffff-no-rj',
                 videoID: 'BxBfolbWrkw',
                 subscriber: '2,14 N subscriber',
+                description:
+                    'Web UI Design - Ferrari Car Website landing page UI Tutorial | Adobe XD In this video i will show you how to create a Car Website UI using Adobe XD . Hope you guys enjoy it! :D',
+                students: [
+                    {
+                        id: 0,
+                        name: 'Student 1',
+                        thumbnail: require('../assets/images/student_1.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'Student 2',
+                        thumbnail: require('../assets/images/student_2.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                    {
+                        id: 3,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                ],
+                files: [
+                    {
+                        id: 0,
+                        name: 'UI Fundamentals',
+                        author: 'Shared by VMT',
+                        upload_date: '13th Sep 2021',
+                        thumbnail: require('../assets/images/pdf.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'UX Checklist',
+                        author: 'Shared by VMT',
+                        upload_date: '11th Sep 2021',
+                        thumbnail: require('../assets/images/doc.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Sketch File',
+                        author: 'Shared by VMT',
+                        upload_date: '7th Sep 2021',
+                        thumbnail: require('../assets/images/sketch.png'),
+                    },
+                ],
+                discussions: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_2.png'),
+                        name: 'VMT',
+                        no_of_comments: '11 comments',
+                        no_of_likes: '72 likes',
+                        posted_on: '5 days ago',
+                        comment:
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        replies: [
+                            {
+                                id: 0,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                            {
+                                id: 1,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                        ],
+                    },
+                ],
             },
         ],
     },
@@ -58,22 +269,90 @@ const categories = [
         listCourses: [
             {
                 id: 0,
-                title: 'Blender 3.0 - Jinx modeling - Arcane',
-                duration: '1h 12m',
-                instructor: 'Fly Cat',
+                title: 'Digital Sculpting is AMAZING! Modeling Vi in Blender - Arcane',
+                duration: '13m 32s',
+                number_of_students: '33.5k Students',
+                instructor: 'YanSculpts',
                 ratings: 4.9,
                 is_favourite: false,
                 thumbnail:
-                    'https://i.ytimg.com/vi/k9jHNW56HXs/hqdefault.jpg?s…AFwAcABBg==&rs=AOn4CLALr8VucW1noAV_0oOeG20mLPG5wA',
+                    'https://i.ytimg.com/vi/o-lHNy0DoiQ/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLCk5XLOXVlzEBg-3Wola8kycTFMbA',
                 imageProfile:
-                    'https://yt3.ggpht.com/ytc/AKedOLRxs0OQ6Xf9t3FlVhJEn2An6UY49HKf0AvGS7zUSQ=s68-c-k-c0x00ffffff-no-rj',
-                videoID: 'k9jHNW56HXs',
-                subscriber: '222 N subscriber',
+                    'https://yt3.ggpht.com/ytc/AKedOLRLJXkWWLZDlz89T3OHQQMeLWvR4dwta3Uy3iAaUg=s176-c-k-c0x00ffffff-no-rj',
+                videoID: 'o-lHNy0DoiQ',
+                subscriber: '477 N subscriber',
+                description: 'Sculpting Vi from Arcane in Blender',
+                students: [
+                    {
+                        id: 0,
+                        name: 'Student 1',
+                        thumbnail: require('../assets/images/student_1.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'Student 2',
+                        thumbnail: require('../assets/images/student_2.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                    {
+                        id: 3,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                ],
+                files: [
+                    {
+                        id: 0,
+                        name: 'Character Modal',
+                        author: 'Shared by VMT',
+                        upload_date: '7th Sep 2021',
+                        thumbnail: require('../assets/images/ar.png'),
+                        obj: require('../feature/viroAR/modals/character/2nrtbod1out.obj'),
+                        diffuseTexture: require('../feature/viroAR/modals/character/ntxr001.png'),
+                        scale: [0.009, 0.009, 0.009],
+                        type: 'OBJ',
+                        position: [0, -2, -3],
+                        rotation: [-100, 0, 0],
+                    },
+                ],
+                discussions: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_2.png'),
+                        name: 'VMT',
+                        no_of_comments: '11 comments',
+                        no_of_likes: '72 likes',
+                        posted_on: '5 days ago',
+                        comment:
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        replies: [
+                            {
+                                id: 0,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                            {
+                                id: 1,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                        ],
+                    },
+                ],
             },
             {
                 id: 1,
                 title: '3D Modeling Tutorial | Matrix 9 clayoo tutorial',
                 duration: '29m 26s',
+                number_of_students: '33.5k Students',
                 instructor: 'DESIGN',
                 ratings: 4.9,
                 is_favourite: true,
@@ -83,11 +362,79 @@ const categories = [
                     'https://yt3.ggpht.com/ytc/AKedOLThCsXJEFLQEQf43dHINoTo0Op3jqAaTlLAgWIJfw=s176-c-k-c0x00ffffff-no-rj',
                 videoID: '0I0rBX1wgwA',
                 subscriber: '8,78 N subscriber',
+                description:
+                    'HƯỚNG DẪN THIẾT KẾ NỮ TRANG CHO NGƯỜI MỚI BẮT ĐẦU Kênh Design là nơi chia sẻ những kiến thức về thiết kế , những thủ thuật về máy tính v.v... để giao lưu với tất cả mọi người. Hy vọng đây sẽ là sân chơi cho những bạn có cùng đam mê và sở thích về thiết kế đồ họa tại Việt Nam',
+                students: [
+                    {
+                        id: 0,
+                        name: 'Student 1',
+                        thumbnail: require('../assets/images/student_1.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'Student 2',
+                        thumbnail: require('../assets/images/student_2.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                    {
+                        id: 3,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                ],
+                files: [
+                    {
+                        id: 0,
+                        name: 'Skull Modal',
+                        author: 'Shared by VMT',
+                        upload_date: '7th Sep 2021',
+                        thumbnail: require('../assets/images/ar.png'),
+                        obj: require('../feature/viroAR/modals/skull/Skull.obj'),
+                        diffuseTexture: require('../feature/viroAR/modals/skull/Skull.jpg'),
+                        scale: [0.05, 0.05, 0.05],
+                        type: 'OBJ',
+                        position: [0, -1, -3],
+                        rotation: [-100, 0, 0],
+                    },
+                ],
+                discussions: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_2.png'),
+                        name: 'VMT',
+                        no_of_comments: '11 comments',
+                        no_of_likes: '72 likes',
+                        posted_on: '5 days ago',
+                        comment:
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        replies: [
+                            {
+                                id: 0,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                            {
+                                id: 1,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                        ],
+                    },
+                ],
             },
             {
                 id: 2,
                 title: 'Drone 3d Modeling Tutorial with Autodesk Maya, by Darrell Abney',
                 duration: '3m 49s',
+                number_of_students: '33.5k Students',
                 instructor: 'artbydabney',
                 ratings: 4.9,
                 is_favourite: false,
@@ -97,11 +444,87 @@ const categories = [
                     'https://yt3.ggpht.com/ytc/AKedOLSkoLFZjyzl_7FdRtFrp-VY6fh-gWCPfvo0-RBl=s68-c-k-c0x00ffffff-no-rj',
                 videoID: 'KrgO6Avn0qg',
                 subscriber: '348 subscriber',
+                description:
+                    'Over 20 hours of footage!  Full HD video with English commentary recorded by a 3d modeling veteran of the film and game industry for 15 plus years. Learn how to create a clean, production-ready medical drone robot completely from scratch with Autodesk Maya.  I also show you how to create beautiful renders of your 3d models with Arnold.  Detailed 2d concept art included to help you to create your model. ',
+                students: [
+                    {
+                        id: 0,
+                        name: 'Student 1',
+                        thumbnail: require('../assets/images/student_1.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'Student 2',
+                        thumbnail: require('../assets/images/student_2.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                    {
+                        id: 3,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                ],
+                files: [
+                    {
+                        id: 0,
+                        name: 'UI Fundamentals',
+                        author: 'Shared by VMT',
+                        upload_date: '13th Sep 2021',
+                        thumbnail: require('../assets/images/pdf.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'UX Checklist',
+                        author: 'Shared by VMT',
+                        upload_date: '11th Sep 2021',
+                        thumbnail: require('../assets/images/doc.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Sketch File',
+                        author: 'Shared by VMT',
+                        upload_date: '7th Sep 2021',
+                        thumbnail: require('../assets/images/sketch.png'),
+                    },
+                ],
+                discussions: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_2.png'),
+                        name: 'VMT',
+                        no_of_comments: '11 comments',
+                        no_of_likes: '72 likes',
+                        posted_on: '5 days ago',
+                        comment:
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        replies: [
+                            {
+                                id: 0,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                            {
+                                id: 1,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                        ],
+                    },
+                ],
             },
             {
                 id: 3,
                 title: 'CGI 3D Modeling Showreel HD by Hannah Kang | CGMeetup',
                 duration: '2m 09s',
+                number_of_students: '33.5k Students',
                 instructor: 'CGMeetup',
                 ratings: 4.9,
                 is_favourite: true,
@@ -111,11 +534,86 @@ const categories = [
                     'https://yt3.ggpht.com/ytc/AKedOLSY6qwuYPedEmg8dnjXanUIUWB5PulvDRkY9n0vWLM=s68-c-k-c0x00ffffff-no-rj',
                 videoID: 'oMFSY_9lfWA',
                 subscriber: '5,71 Tr subscriber',
+                description: 'CGI 3D Modeling Showreel HD: by Hannah Kang',
+                students: [
+                    {
+                        id: 0,
+                        name: 'Student 1',
+                        thumbnail: require('../assets/images/student_1.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'Student 2',
+                        thumbnail: require('../assets/images/student_2.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                    {
+                        id: 3,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                ],
+                files: [
+                    {
+                        id: 0,
+                        name: 'UI Fundamentals',
+                        author: 'Shared by VMT',
+                        upload_date: '13th Sep 2021',
+                        thumbnail: require('../assets/images/pdf.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'UX Checklist',
+                        author: 'Shared by VMT',
+                        upload_date: '11th Sep 2021',
+                        thumbnail: require('../assets/images/doc.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Sketch File',
+                        author: 'Shared by VMT',
+                        upload_date: '7th Sep 2021',
+                        thumbnail: require('../assets/images/sketch.png'),
+                    },
+                ],
+                discussions: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_2.png'),
+                        name: 'VMT',
+                        no_of_comments: '11 comments',
+                        no_of_likes: '72 likes',
+                        posted_on: '5 days ago',
+                        comment:
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        replies: [
+                            {
+                                id: 0,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                            {
+                                id: 1,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                        ],
+                    },
+                ],
             },
             {
                 id: 4,
                 title: 'Mobile Game Character Bust - 3D Modeling in blender - Pirate',
                 duration: '8m 52s',
+                number_of_students: '33.5k Students',
                 instructor: 'Arturs Luksis',
                 ratings: 4.9,
                 is_favourite: false,
@@ -125,6 +623,80 @@ const categories = [
                     'https://yt3.ggpht.com/ytc/AKedOLQpaZVSSoz9-tgBJnfbeLIz5eCx0pF2ICK2uRBvww=s68-c-k-c0x00ffffff-no-rj',
                 videoID: '8uprYOojibI',
                 subscriber: '2,31 N subscriber',
+                description: 'Process of 3D modeling a character bust from scratch. Done all in blender. Enjoy.',
+                students: [
+                    {
+                        id: 0,
+                        name: 'Student 1',
+                        thumbnail: require('../assets/images/student_1.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'Student 2',
+                        thumbnail: require('../assets/images/student_2.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                    {
+                        id: 3,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                ],
+                files: [
+                    {
+                        id: 0,
+                        name: 'UI Fundamentals',
+                        author: 'Shared by VMT',
+                        upload_date: '13th Sep 2021',
+                        thumbnail: require('../assets/images/pdf.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'UX Checklist',
+                        author: 'Shared by VMT',
+                        upload_date: '11th Sep 2021',
+                        thumbnail: require('../assets/images/doc.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Sketch File',
+                        author: 'Shared by VMT',
+                        upload_date: '7th Sep 2021',
+                        thumbnail: require('../assets/images/sketch.png'),
+                    },
+                ],
+                discussions: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_2.png'),
+                        name: 'VMT',
+                        no_of_comments: '11 comments',
+                        no_of_likes: '72 likes',
+                        posted_on: '5 days ago',
+                        comment:
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        replies: [
+                            {
+                                id: 0,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                            {
+                                id: 1,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                        ],
+                    },
+                ],
             },
         ],
     },
@@ -138,6 +710,7 @@ const categories = [
                 id: 0,
                 title: 'TOP 5 WEBSITES EVERY WEB DESIGNER SHOULD VISIT: Mind-blowing web design | March 2020',
                 duration: '10m 08s',
+                number_of_students: '33.5k Students',
                 instructor: 'Flux',
                 ratings: 4.9,
                 is_favourite: true,
@@ -147,6 +720,81 @@ const categories = [
                     'https://yt3.ggpht.com/ytc/AKedOLSepWZ2hvxxHxGVMszm5704uzu-KpNkYgXMdVaHfQ=s176-c-k-c0x00ffffff-no-rj',
                 videoID: 'AmHEfTSBXiY',
                 subscriber: '384 N subscriber',
+                description:
+                    'Top 5 crazy innovative websites every graphic designer should visit to learn graphic design. These are the best practices, and the best online graphic design websites and web design trends of March 2020',
+                students: [
+                    {
+                        id: 0,
+                        name: 'Student 1',
+                        thumbnail: require('../assets/images/student_1.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'Student 2',
+                        thumbnail: require('../assets/images/student_2.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                    {
+                        id: 3,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                ],
+                files: [
+                    {
+                        id: 0,
+                        name: 'UI Fundamentals',
+                        author: 'Shared by VMT',
+                        upload_date: '13th Sep 2021',
+                        thumbnail: require('../assets/images/pdf.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'UX Checklist',
+                        author: 'Shared by VMT',
+                        upload_date: '11th Sep 2021',
+                        thumbnail: require('../assets/images/doc.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Sketch File',
+                        author: 'Shared by VMT',
+                        upload_date: '7th Sep 2021',
+                        thumbnail: require('../assets/images/sketch.png'),
+                    },
+                ],
+                discussions: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_2.png'),
+                        name: 'VMT',
+                        no_of_comments: '11 comments',
+                        no_of_likes: '72 likes',
+                        posted_on: '5 days ago',
+                        comment:
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        replies: [
+                            {
+                                id: 0,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                            {
+                                id: 1,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                        ],
+                    },
+                ],
             },
         ],
     },
@@ -160,6 +808,7 @@ const categories = [
                 id: 0,
                 title: 'Vector Portrait in Adobe Illustrator 2021 | Vector Art | Vector Illustration | Speed Art',
                 duration: '32m 58s',
+                number_of_students: '33.5k Students',
                 instructor: 'Midas Multimedia',
                 ratings: 4.9,
                 is_favourite: false,
@@ -169,6 +818,81 @@ const categories = [
                     'https://yt3.ggpht.com/ytc/AKedOLQtTPMyIsJ6wD55d1wFg_yLTSTSXDaySj2nCcZYXA=s176-c-k-c0x00ffffff-no-rj',
                 videoID: 'X9l62w0VfuA',
                 subscriber: '28,4 N subscriber',
+                description:
+                    'Vector Portrait in Illustrator 2021 | Vector Illustration | Vector Art Illustrator | Illustrator tutorials 2021 \nHey Guys what up this is Parag and today I will show you how I designed this vector portrait using a reference image. It took me 3 Hours to create this tutorial, so I have used speed art to show you my illustration techniques using reference image.',
+                students: [
+                    {
+                        id: 0,
+                        name: 'Student 1',
+                        thumbnail: require('../assets/images/student_1.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'Student 2',
+                        thumbnail: require('../assets/images/student_2.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                    {
+                        id: 3,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                ],
+                files: [
+                    {
+                        id: 0,
+                        name: 'UI Fundamentals',
+                        author: 'Shared by VMT',
+                        upload_date: '13th Sep 2021',
+                        thumbnail: require('../assets/images/pdf.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'UX Checklist',
+                        author: 'Shared by VMT',
+                        upload_date: '11th Sep 2021',
+                        thumbnail: require('../assets/images/doc.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Sketch File',
+                        author: 'Shared by VMT',
+                        upload_date: '7th Sep 2021',
+                        thumbnail: require('../assets/images/sketch.png'),
+                    },
+                ],
+                discussions: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_2.png'),
+                        name: 'VMT',
+                        no_of_comments: '11 comments',
+                        no_of_likes: '72 likes',
+                        posted_on: '5 days ago',
+                        comment:
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        replies: [
+                            {
+                                id: 0,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                            {
+                                id: 1,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                        ],
+                    },
+                ],
             },
         ],
     },
@@ -182,6 +906,7 @@ const categories = [
                 id: 0,
                 title: 'Drawing the Weirdest Halloween Costumes | ILLYSTRATIONS #2',
                 duration: '8m 23s',
+                number_of_students: '33.5k Students',
                 instructor: 'illymation',
                 ratings: 4.9,
                 is_favourite: false,
@@ -191,6 +916,81 @@ const categories = [
                     'https://yt3.ggpht.com/ytc/AKedOLSOpGLk9H2Y-tsAAu-9WATLSTQ-y6pDfspyWXTcuQ=s68-c-k-c0x00ffffff-no-rj',
                 videoID: 'ZjzJ_QWbuew',
                 subscriber: '1,96 Tr subscriber',
+                description:
+                    'ILLYSTRATIONS episode 2! Drawing and illustrating what you will be for Halloween this year! you will came up with some of the most creative aaaaand weirdest Halloween costume ideas...',
+                students: [
+                    {
+                        id: 0,
+                        name: 'Student 1',
+                        thumbnail: require('../assets/images/student_1.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'Student 2',
+                        thumbnail: require('../assets/images/student_2.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                    {
+                        id: 3,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                ],
+                files: [
+                    {
+                        id: 0,
+                        name: 'UI Fundamentals',
+                        author: 'Shared by VMT',
+                        upload_date: '13th Sep 2021',
+                        thumbnail: require('../assets/images/pdf.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'UX Checklist',
+                        author: 'Shared by VMT',
+                        upload_date: '11th Sep 2021',
+                        thumbnail: require('../assets/images/doc.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Sketch File',
+                        author: 'Shared by VMT',
+                        upload_date: '7th Sep 2021',
+                        thumbnail: require('../assets/images/sketch.png'),
+                    },
+                ],
+                discussions: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_2.png'),
+                        name: 'VMT',
+                        no_of_comments: '11 comments',
+                        no_of_likes: '72 likes',
+                        posted_on: '5 days ago',
+                        comment:
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        replies: [
+                            {
+                                id: 0,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                            {
+                                id: 1,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                        ],
+                    },
+                ],
             },
         ],
     },
@@ -204,6 +1004,7 @@ const categories = [
                 id: 0,
                 title: 'Brawl Stars Animation: My Sweet Brawlentine',
                 duration: '1m 58s',
+                number_of_students: '33.5k Students',
                 instructor: 'Brawl Stars',
                 ratings: 4.9,
                 is_favourite: true,
@@ -213,52 +1014,405 @@ const categories = [
                     'https://yt3.ggpht.com/ytc/AKedOLQ3LURTD3SinroipOHOm7cAOUIsnOJIENqGZnhl4Q=s176-c-k-c0x00ffffff-no-rj',
                 videoID: 'B38eWbSuSiM',
                 subscriber: '11,9 Tr subscriber',
+                description:
+                    'Unlock and upgrade dozens of Brawlers with powerful Super abilities, Star Powers and Gadgets! Collect unique skins to stand out and show off. Battle in a variety of mysterious locations within the Brawliverse!',
+                students: [
+                    {
+                        id: 0,
+                        name: 'Student 1',
+                        thumbnail: require('../assets/images/student_1.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'Student 2',
+                        thumbnail: require('../assets/images/student_2.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                    {
+                        id: 3,
+                        name: 'Student 3',
+                        thumbnail: require('../assets/images/student_3.png'),
+                    },
+                ],
+                files: [
+                    {
+                        id: 0,
+                        name: 'UI Fundamentals',
+                        author: 'Shared by VMT',
+                        upload_date: '13th Sep 2021',
+                        thumbnail: require('../assets/images/pdf.png'),
+                    },
+                    {
+                        id: 1,
+                        name: 'UX Checklist',
+                        author: 'Shared by VMT',
+                        upload_date: '11th Sep 2021',
+                        thumbnail: require('../assets/images/doc.png'),
+                    },
+                    {
+                        id: 2,
+                        name: 'Sketch File',
+                        author: 'Shared by VMT',
+                        upload_date: '7th Sep 2021',
+                        thumbnail: require('../assets/images/sketch.png'),
+                    },
+                ],
+                discussions: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_2.png'),
+                        name: 'VMT',
+                        no_of_comments: '11 comments',
+                        no_of_likes: '72 likes',
+                        posted_on: '5 days ago',
+                        comment:
+                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                        replies: [
+                            {
+                                id: 0,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                            {
+                                id: 1,
+                                profile: require('../assets/images/student_1.png'),
+                                name: 'VMT',
+                                posted_on: '4 days ago',
+                                comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                            },
+                        ],
+                    },
+                ],
             },
         ],
     },
 ];
 
-const courses_list_1 = [
+const courses_list_horizontal = [
     {
         id: 0,
         title: 'FREE Blender 3D Models - Sketchfab to Blender',
         duration: '3m 29s',
+        number_of_students: '33.5k Students',
         thumbnail: require('../assets/images/thumbnail_3d.webp'),
         videoID: 'ZfXIQkqN0kg',
         instructor: 'Buvesa Game Development',
         subscriber: '1,58 N subscriber',
         imageProfile:
             'https://yt3.ggpht.com/O8rQIVAQojhqOFJbIvTe0AdOl-m_Nz06bG6U0bwlTOiMys-RJfWPNVNgB67ZkyJQBOuaOnBIHvA=s176-c-k-c0x00ffffff-no-rj',
+        description:
+            'In this video you will learn how to get free models from sketchfab and get them into Blender. This tutorial was made in blender 2.9 but works with different versions as well. I will show you my workflow on how to get million of free model meshes for Blender.',
+        students: [
+            {
+                id: 0,
+                name: 'Student 1',
+                thumbnail: require('../assets/images/student_1.png'),
+            },
+            {
+                id: 1,
+                name: 'Student 2',
+                thumbnail: require('../assets/images/student_2.png'),
+            },
+            {
+                id: 2,
+                name: 'Student 3',
+                thumbnail: require('../assets/images/student_3.png'),
+            },
+            {
+                id: 3,
+                name: 'Student 3',
+                thumbnail: require('../assets/images/student_3.png'),
+            },
+        ],
+        files: [
+            {
+                id: 0,
+                name: 'SpaceShip Modal',
+                author: 'Shared by VMT',
+                upload_date: '13th Sep 2021',
+                thumbnail: require('../assets/images/ar.png'),
+                obj: require('../feature/viroAR/modals/spaceship/spaceship.obj'),
+                diffuseTexture: require('../feature/viroAR/modals/spaceship/BLF1.jpg'),
+                scale: [1.5, 1.5, 1.5],
+                type: 'OBJ',
+                position: [0, -1, -3],
+                rotation: [0, 0, 0],
+            },
+        ],
+        discussions: [
+            {
+                id: 0,
+                profile: require('../assets/images/student_2.png'),
+                name: 'VMT',
+                no_of_comments: '11 comments',
+                no_of_likes: '72 likes',
+                posted_on: '5 days ago',
+                comment:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                replies: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_1.png'),
+                        name: 'VMT',
+                        posted_on: '4 days ago',
+                        comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    },
+                    {
+                        id: 1,
+                        profile: require('../assets/images/student_1.png'),
+                        name: 'VMT',
+                        posted_on: '4 days ago',
+                        comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    },
+                ],
+            },
+            {
+                id: 1,
+                profile: require('../assets/images/student_2.png'),
+                name: 'VMT',
+                no_of_comments: '21 comments',
+                no_of_likes: '372 likes',
+                posted_on: '14 days ago',
+                comment:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                replies: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_1.png'),
+                        name: 'VMT',
+                        posted_on: '7 days ago',
+                        comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    },
+                ],
+            },
+        ],
     },
     {
         id: 1,
         title: 'Glow Effect - Photoshop Tutorial | Glowing Effect',
         duration: '9m 48s',
+        number_of_students: '33.5k Students',
         thumbnail: require('../assets/images/thumbnail_2.webp'),
         videoID: 'uOUXDipWeN8',
         instructor: 'Photoshop Tutorials',
         subscriber: '508 N subscriber',
         imageProfile:
             'https://yt3.ggpht.com/ytc/AKedOLSxJIov5NNNN2d_Dy4F9oNpbWkoftE9ZwSOdH-EUQ=s68-c-k-c0x00ffffff-no-rj',
+        description:
+            'In This Advanced Glow/Glowing Effect Photoshop Tutorial, learn How to make glowing effect in photoshop. I will show you how to make glow effect or glow object in photoshop.',
+        students: [
+            {
+                id: 0,
+                name: 'Student 1',
+                thumbnail: require('../assets/images/student_1.png'),
+            },
+            {
+                id: 1,
+                name: 'Student 2',
+                thumbnail: require('../assets/images/student_2.png'),
+            },
+            {
+                id: 2,
+                name: 'Student 3',
+                thumbnail: require('../assets/images/student_3.png'),
+            },
+            {
+                id: 3,
+                name: 'Student 3',
+                thumbnail: require('../assets/images/student_3.png'),
+            },
+        ],
+        files: [
+            {
+                id: 0,
+                name: 'UI Fundamentals',
+                author: 'Shared by VMT',
+                upload_date: '13th Sep 2021',
+                thumbnail: require('../assets/images/pdf.png'),
+            },
+            {
+                id: 1,
+                name: 'UX Checklist',
+                author: 'Shared by VMT',
+                upload_date: '11th Sep 2021',
+                thumbnail: require('../assets/images/doc.png'),
+            },
+            {
+                id: 2,
+                name: 'Sketch File',
+                author: 'Shared by VMT',
+                upload_date: '7th Sep 2021',
+                thumbnail: require('../assets/images/sketch.png'),
+            },
+        ],
+        discussions: [
+            {
+                id: 0,
+                profile: require('../assets/images/student_2.png'),
+                name: 'VMT',
+                no_of_comments: '11 comments',
+                no_of_likes: '72 likes',
+                posted_on: '5 days ago',
+                comment:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                replies: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_1.png'),
+                        name: 'VMT',
+                        posted_on: '4 days ago',
+                        comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    },
+                    {
+                        id: 1,
+                        profile: require('../assets/images/student_1.png'),
+                        name: 'VMT',
+                        posted_on: '4 days ago',
+                        comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    },
+                ],
+            },
+            {
+                id: 1,
+                profile: require('../assets/images/student_2.png'),
+                name: 'VMT',
+                no_of_comments: '21 comments',
+                no_of_likes: '372 likes',
+                posted_on: '14 days ago',
+                comment:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                replies: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_1.png'),
+                        name: 'VMT',
+                        posted_on: '7 days ago',
+                        comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    },
+                ],
+            },
+        ],
     },
     {
         id: 2,
         title: 'Object-oriented Programming in JavaScript',
         duration: '1h 02m',
+        number_of_students: '33.5k Students',
         thumbnail: require('../assets/images/thumnail_1.webp'),
         videoID: 'PFmuCDHHpwk',
         instructor: 'Programming with Mosh',
         subscriber: '2,32 Tr subscriber',
         imageProfile:
             'https://yt3.ggpht.com/tBEPr-zTNXEeae7VZKSZYfiy6azzs9OHowq5ZvogJeHoVtKtEw2PXSwzMBKVR7W0MI7gyND8=s68-c-k-c0x00ffffff-no-rj',
+        description:
+            'Object-oriented programming in JavaScript: learn all about objects, prototypes, prototypical inheritance, this and more. ',
+        students: [
+            {
+                id: 0,
+                name: 'Student 1',
+                thumbnail: require('../assets/images/student_1.png'),
+            },
+            {
+                id: 1,
+                name: 'Student 2',
+                thumbnail: require('../assets/images/student_2.png'),
+            },
+            {
+                id: 2,
+                name: 'Student 3',
+                thumbnail: require('../assets/images/student_3.png'),
+            },
+            {
+                id: 3,
+                name: 'Student 3',
+                thumbnail: require('../assets/images/student_3.png'),
+            },
+        ],
+        files: [
+            {
+                id: 0,
+                name: 'UI Fundamentals',
+                author: 'Shared by VMT',
+                upload_date: '13th Sep 2021',
+                thumbnail: require('../assets/images/pdf.png'),
+            },
+            {
+                id: 1,
+                name: 'UX Checklist',
+                author: 'Shared by VMT',
+                upload_date: '11th Sep 2021',
+                thumbnail: require('../assets/images/doc.png'),
+            },
+            {
+                id: 2,
+                name: 'Sketch File',
+                author: 'Shared by VMT',
+                upload_date: '7th Sep 2021',
+                thumbnail: require('../assets/images/sketch.png'),
+            },
+        ],
+        discussions: [
+            {
+                id: 0,
+                profile: require('../assets/images/student_2.png'),
+                name: 'VMT',
+                no_of_comments: '11 comments',
+                no_of_likes: '72 likes',
+                posted_on: '5 days ago',
+                comment:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                replies: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_1.png'),
+                        name: 'VMT',
+                        posted_on: '4 days ago',
+                        comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    },
+                    {
+                        id: 1,
+                        profile: require('../assets/images/student_1.png'),
+                        name: 'VMT',
+                        posted_on: '4 days ago',
+                        comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    },
+                ],
+            },
+            {
+                id: 1,
+                profile: require('../assets/images/student_2.png'),
+                name: 'VMT',
+                no_of_comments: '21 comments',
+                no_of_likes: '372 likes',
+                posted_on: '14 days ago',
+                comment:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                replies: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_1.png'),
+                        name: 'VMT',
+                        posted_on: '7 days ago',
+                        comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    },
+                ],
+            },
+        ],
     },
 ];
 
-const courses_list_2 = [
+const courses_list_vertical = [
     {
         id: 0,
         title: '3D MODELING DEMOREEL 2021 | By Keen Chan',
         duration: '1m 22s',
+        number_of_students: '33.5k Students',
         instructor: 'Keen Chan',
         ratings: 4.9,
         is_favourite: true,
@@ -268,11 +1422,78 @@ const courses_list_2 = [
             'https://yt3.ggpht.com/ytc/AKedOLTnDDUAqHsu-Fb3Q5NBQLCxKEZ5ZFSbZEifw7ba=s68-c-k-c0x00ffffff-no-rj',
         videoID: 'N88g_IGGHRg',
         subscriber: '1,36 N subscriber',
+        description: '3DAnimator / 3D Modeler',
+        students: [
+            {
+                id: 0,
+                name: 'Student 1',
+                thumbnail: require('../assets/images/student_1.png'),
+            },
+            {
+                id: 1,
+                name: 'Student 2',
+                thumbnail: require('../assets/images/student_2.png'),
+            },
+            {
+                id: 2,
+                name: 'Student 3',
+                thumbnail: require('../assets/images/student_3.png'),
+            },
+            {
+                id: 3,
+                name: 'Student 3',
+                thumbnail: require('../assets/images/student_3.png'),
+            },
+        ],
+        files: [
+            {
+                id: 0,
+                name: 'Car Modal',
+                author: 'Shared by VMT',
+                upload_date: '13th Sep 2021',
+                thumbnail: require('../assets/images/ar.png'),
+                obj: require('../feature/viroAR/modals/car/car.obj'),
+                diffuseTexture: require('../feature/viroAR/modals/car/cp2.jpg'),
+                scale: [0.005, 0.005, 0.005],
+                type: 'OBJ',
+                position: [0, -1, -3],
+                rotation: [0, 0, 0],
+            },
+        ],
+        discussions: [
+            {
+                id: 0,
+                profile: require('../assets/images/student_2.png'),
+                name: 'VMT',
+                no_of_comments: '11 comments',
+                no_of_likes: '72 likes',
+                posted_on: '5 days ago',
+                comment:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                replies: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_1.png'),
+                        name: 'VMT',
+                        posted_on: '4 days ago',
+                        comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    },
+                    {
+                        id: 1,
+                        profile: require('../assets/images/student_1.png'),
+                        name: 'VMT',
+                        posted_on: '4 days ago',
+                        comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    },
+                ],
+            },
+        ],
     },
     {
         id: 1,
         title: 'SQL được giải thích trong 100 giây',
         duration: '2m 22s',
+        number_of_students: '33.5k Students',
         instructor: 'Fireship',
         ratings: 4.9,
         is_favourite: false,
@@ -282,11 +1503,87 @@ const courses_list_2 = [
             'https://yt3.ggpht.com/ytc/AKedOLTcIl6kKt3lEPJEySUf_hpHiKDKiFeo9eWPReLysQ=s68-c-k-c0x00ffffff-no-rj',
         videoID: 'zsjvFFKOm3c',
         subscriber: '1,13 Tr subscriber',
+        description:
+            'Learn the fundamentals of Structured Query Language SQL! Even though it is over 40 years old, the world is most popular databases still run on SQL.',
+        students: [
+            {
+                id: 0,
+                name: 'Student 1',
+                thumbnail: require('../assets/images/student_1.png'),
+            },
+            {
+                id: 1,
+                name: 'Student 2',
+                thumbnail: require('../assets/images/student_2.png'),
+            },
+            {
+                id: 2,
+                name: 'Student 3',
+                thumbnail: require('../assets/images/student_3.png'),
+            },
+            {
+                id: 3,
+                name: 'Student 3',
+                thumbnail: require('../assets/images/student_3.png'),
+            },
+        ],
+        files: [
+            {
+                id: 0,
+                name: 'UI Fundamentals',
+                author: 'Shared by VMT',
+                upload_date: '13th Sep 2021',
+                thumbnail: require('../assets/images/pdf.png'),
+            },
+            {
+                id: 1,
+                name: 'UX Checklist',
+                author: 'Shared by VMT',
+                upload_date: '11th Sep 2021',
+                thumbnail: require('../assets/images/doc.png'),
+            },
+            {
+                id: 2,
+                name: 'Sketch File',
+                author: 'Shared by VMT',
+                upload_date: '7th Sep 2021',
+                thumbnail: require('../assets/images/sketch.png'),
+            },
+        ],
+        discussions: [
+            {
+                id: 0,
+                profile: require('../assets/images/student_2.png'),
+                name: 'VMT',
+                no_of_comments: '11 comments',
+                no_of_likes: '72 likes',
+                posted_on: '5 days ago',
+                comment:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                replies: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_1.png'),
+                        name: 'VMT',
+                        posted_on: '4 days ago',
+                        comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    },
+                    {
+                        id: 1,
+                        profile: require('../assets/images/student_1.png'),
+                        name: 'VMT',
+                        posted_on: '4 days ago',
+                        comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    },
+                ],
+            },
+        ],
     },
     {
         id: 2,
         title: 'Quick Technique for Portrait Dual Lighting Effect In Photoshop',
         duration: '2m 22s',
+        number_of_students: '33.5k Students',
         instructor: 'Mx Effects',
         ratings: 3.5,
         is_favourite: true,
@@ -296,6 +1593,99 @@ const courses_list_2 = [
             'https://yt3.ggpht.com/ytc/AKedOLSf6vdF8nFoSD2hmW77ptdsNyJwG0alERoJOll_5Q=s68-c-k-c0x00ffffff-no-rj',
         videoID: 'r0rC8WuO-jI',
         subscriber: '8,85 N subscriber',
+        description: 'In this video I will show you how to create simple and nice looking dual tone effect.',
+        students: [
+            {
+                id: 0,
+                name: 'Student 1',
+                thumbnail: require('../assets/images/student_1.png'),
+            },
+            {
+                id: 1,
+                name: 'Student 2',
+                thumbnail: require('../assets/images/student_2.png'),
+            },
+            {
+                id: 2,
+                name: 'Student 3',
+                thumbnail: require('../assets/images/student_3.png'),
+            },
+            {
+                id: 3,
+                name: 'Student 3',
+                thumbnail: require('../assets/images/student_3.png'),
+            },
+        ],
+        files: [
+            {
+                id: 0,
+                name: 'UI Fundamentals',
+                author: 'Shared by VMT',
+                upload_date: '13th Sep 2021',
+                thumbnail: require('../assets/images/pdf.png'),
+            },
+            {
+                id: 1,
+                name: 'UX Checklist',
+                author: 'Shared by VMT',
+                upload_date: '11th Sep 2021',
+                thumbnail: require('../assets/images/doc.png'),
+            },
+            {
+                id: 2,
+                name: 'Sketch File',
+                author: 'Shared by VMT',
+                upload_date: '7th Sep 2021',
+                thumbnail: require('../assets/images/sketch.png'),
+            },
+        ],
+        discussions: [
+            {
+                id: 0,
+                profile: require('../assets/images/student_2.png'),
+                name: 'VMT',
+                no_of_comments: '11 comments',
+                no_of_likes: '72 likes',
+                posted_on: '5 days ago',
+                comment:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                replies: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_1.png'),
+                        name: 'VMT',
+                        posted_on: '4 days ago',
+                        comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    },
+                    {
+                        id: 1,
+                        profile: require('../assets/images/student_1.png'),
+                        name: 'VMT',
+                        posted_on: '4 days ago',
+                        comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    },
+                ],
+            },
+            {
+                id: 1,
+                profile: require('../assets/images/student_2.png'),
+                name: 'VMT',
+                no_of_comments: '21 comments',
+                no_of_likes: '372 likes',
+                posted_on: '14 days ago',
+                comment:
+                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+                replies: [
+                    {
+                        id: 0,
+                        profile: require('../assets/images/student_1.png'),
+                        name: 'VMT',
+                        posted_on: '7 days ago',
+                        comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
+                    },
+                ],
+            },
+        ],
     },
 ];
 
@@ -325,141 +1715,6 @@ const top_searches = [
         label: 'Animation',
     },
 ];
-
-const course_details = {
-    id: 0,
-    title: 'Algorithms and Data Structures Tutorial - Full Course',
-    number_of_students: '33.5k Students',
-    duration: '5h 22m',
-    instructor: {
-        name: 'VMT',
-        title: 'Mobile Develop',
-    },
-    videos: [
-        {
-            title: '1. Introduction',
-            duration: '1:37',
-            size: '10 MB',
-            progress: '100%',
-            is_playing: false,
-            is_complete: true,
-            is_lock: false,
-            is_downloaded: false,
-        },
-        {
-            title: '2. User Interface',
-            duration: '1:15:00',
-            size: '200 MB',
-            progress: '100%',
-            is_playing: true,
-            is_complete: false,
-            is_lock: false,
-            is_downloaded: true,
-        },
-        {
-            title: '3. User Experience',
-            duration: '1:27:00',
-            size: '230 MB',
-            progress: '0%',
-            is_playing: false,
-            is_complete: false,
-            is_lock: true,
-            is_downloaded: false,
-        },
-    ],
-    students: [
-        {
-            id: 0,
-            name: 'Student 1',
-            thumbnail: require('../assets/images/student_1.png'),
-        },
-        {
-            id: 1,
-            name: 'Student 2',
-            thumbnail: require('../assets/images/student_2.png'),
-        },
-        {
-            id: 2,
-            name: 'Student 3',
-            thumbnail: require('../assets/images/student_3.png'),
-        },
-        {
-            id: 3,
-            name: 'Student 3',
-            thumbnail: require('../assets/images/student_3.png'),
-        },
-    ],
-    files: [
-        {
-            id: 0,
-            name: 'UI Fundamentals',
-            author: 'Shared by VMT',
-            upload_date: '13th Sep 2021',
-            thumbnail: require('../assets/images/pdf.png'),
-        },
-        {
-            id: 1,
-            name: 'UX Checklist',
-            author: 'Shared by VMT',
-            upload_date: '11th Sep 2021',
-            thumbnail: require('../assets/images/doc.png'),
-        },
-        {
-            id: 2,
-            name: 'Sketch File',
-            author: 'Shared by VMT',
-            upload_date: '7th Sep 2021',
-            thumbnail: require('../assets/images/sketch.png'),
-        },
-    ],
-    discussions: [
-        {
-            id: 0,
-            profile: require('../assets/images/student_2.png'),
-            name: 'VMT',
-            no_of_comments: '11 comments',
-            no_of_likes: '72 likes',
-            posted_on: '5 days ago',
-            comment:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            replies: [
-                {
-                    id: 0,
-                    profile: require('../assets/images/student_1.png'),
-                    name: 'VMT',
-                    posted_on: '4 days ago',
-                    comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                },
-                {
-                    id: 1,
-                    profile: require('../assets/images/student_1.png'),
-                    name: 'VMT',
-                    posted_on: '4 days ago',
-                    comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                },
-            ],
-        },
-        {
-            id: 1,
-            profile: require('../assets/images/student_2.png'),
-            name: 'VMT',
-            no_of_comments: '21 comments',
-            no_of_likes: '372 likes',
-            posted_on: '14 days ago',
-            comment:
-                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-            replies: [
-                {
-                    id: 0,
-                    profile: require('../assets/images/student_1.png'),
-                    name: 'VMT',
-                    posted_on: '7 days ago',
-                    comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                },
-            ],
-        },
-    ],
-};
 
 const notificationByDays = [
     {
@@ -529,10 +1784,9 @@ const WELCOME_CONTENTS = [
 
 export default {
     categories,
-    courses_list_1,
-    courses_list_2,
+    courses_list_horizontal,
+    courses_list_vertical,
     top_searches,
-    course_details,
     notificationByDays,
     WELCOME_CONTENTS,
 };

@@ -50,8 +50,8 @@ const styles = ScaledSheet.create({
         backgroundColor: COLORS.DEFAULT_GREEN,
     },
     iconPlay: {
-        width: '20@s',
-        height: '20@vs',
+        width: '35@s',
+        height: '35@vs',
     },
     viewContent: {
         flexShrink: 1,

@@ -1,17 +1,21 @@
+import { APP_ROUTE } from 'navigation/config/routes';
+import { navigate } from 'navigation/NavigationService';
 import React from 'react';
-import { Image, ScrollView, Text, View } from 'react-native';
+import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
 import { IconButton, TextButton } from '../../../components/common';
-import { COLORS, dummyData, FONTS, icons, SIZES } from '../../../constants';
+import { COLORS, FONTS, icons, SIZES } from '../../../constants';
 
-const CourseFiles = () => {
+const CourseFiles = (props: any) => {
+    const { selectedCourse } = props;
+
     const renderStudents = () => {
         let students = [];
 
-        if (dummyData?.course_details?.students.length > 3) {
-            students = dummyData?.course_details?.students.slice(0, 3);
+        if (selectedCourse?.students.length > 3) {
+            students = selectedCourse?.students.slice(0, 3);
         } else {
-            students = dummyData?.course_details?.students;
+            students = selectedCourse?.students;
         }
 
         return (
@@ -30,7 +34,7 @@ const CourseFiles = () => {
                             </View>
                         );
                     })}
-                    {dummyData?.course_details?.students.length > 3 && (
+                    {selectedCourse?.students.length > 3 && (
                         <TextButton
                             label="View All"
                             labelStyle={styles.labelViewAll}
@@ -48,11 +52,15 @@ const CourseFiles = () => {
                 {/* Title */}
                 <Text style={styles.title}>Files</Text>
                 {/* File */}
-                {dummyData?.course_details.files.map((item, index) => {
+                {selectedCourse?.files.map((item, index) => {
                     return (
-                        <View key={`Files-${index}`} style={styles.containerItemFiles}>
+                        <TouchableOpacity
+                            key={`Files-${index}`}
+                            style={styles.containerItemFiles}
+                            onPress={() => navigate(APP_ROUTE.VIRO_AR, { item })}
+                        >
                             {/* Thumbnail */}
-                            <Image source={item?.thumbnail} style={styles.imgStudent} />
+                            <Image source={item?.thumbnail} resizeMode="cover" style={styles.imgStudent} />
                             {/* Name, author & date */}
                             <View style={styles.infoFile}>
                                 <Text style={styles.nameFile}>{item?.name}</Text>
@@ -65,7 +73,7 @@ const CourseFiles = () => {
                                 iconStyle={styles.styleIcon}
                                 containerStyle={styles.containerIcon}
                             />
-                        </View>
+                        </TouchableOpacity>
                     );
                 })}
             </View>
@@ -73,7 +81,7 @@ const CourseFiles = () => {
     };
 
     return (
-        <ScrollView style={styles.container}>
+        <ScrollView contentContainerStyle={styles.containerScrollView} style={styles.container}>
             {/* Students */}
             {renderStudents()}
             {/* Files */}
@@ -85,6 +93,9 @@ const CourseFiles = () => {
 const styles = ScaledSheet.create({
     container: {
         padding: SIZES.padding,
+    },
+    containerScrollView: {
+        paddingBottom: '50@vs',
     },
     // student
     title: {
@@ -100,9 +111,10 @@ const styles = ScaledSheet.create({
     imgStudent: {
         width: '80@s',
         height: '80@vs',
+        borderRadius: 20,
     },
     labelViewAll: {
-        color: COLORS.primary,
+        color: COLORS.DEFAULT_GREEN,
         ...FONTS.h3,
     },
     containerLabel: {

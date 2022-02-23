@@ -15,7 +15,7 @@ const HomeScreen = () => {
         return (
             <FlatList
                 horizontal
-                data={dummyData.courses_list_1}
+                data={dummyData.courses_list_horizontal}
                 listKey="Courses"
                 keyExtractor={(item) => `Courses-${item.id}`}
                 showsHorizontalScrollIndicator={false}
@@ -24,7 +24,7 @@ const HomeScreen = () => {
                     <HorizontalCourseCard
                         containerStyle={{
                             marginLeft: index === 0 ? SIZES.padding : SIZES.radius,
-                            marginRight: index === dummyData.courses_list_1.length - 1 ? SIZES.padding : 0,
+                            marginRight: index === dummyData.courses_list_horizontal.length - 1 ? SIZES.padding : 0,
                         }}
                         course={item}
                         onPress={() => navigate(APP_ROUTE.COURSE_DETAIL, { selectedCourse: item })}
@@ -69,7 +69,7 @@ const HomeScreen = () => {
         return (
             <Section title="Popular Course" containerStyle={styles.containerPopularCourses}>
                 <FlatList
-                    data={dummyData.courses_list_2}
+                    data={dummyData.courses_list_vertical}
                     listKey="PopularCourses"
                     scrollEnabled={false}
                     keyExtractor={(item) => `PopularCourses-${item.id}`}

@@ -16,7 +16,7 @@ const styles = ScaledSheet.create({
     container: {
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: COLORS.primary,
+        backgroundColor: COLORS.DEFAULT_GREEN,
     },
     label: {
         color: COLORS.white,
