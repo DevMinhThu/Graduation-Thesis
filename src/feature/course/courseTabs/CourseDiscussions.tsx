@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { FlatList, Image, Keyboard, Text, TextInput, View } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
 import { IconButton, IconLabelButton } from '../../../components/common';
-import { COLORS, dummyData, FONTS, icons, SIZES } from '../../../constants';
+import { COLORS, FONTS, icons, SIZES } from '../../../constants';
 
 const CommentSection = ({ commentItem, commentOption, replies }: any) => {
     return (
@@ -25,7 +25,8 @@ const CommentSection = ({ commentItem, commentOption, replies }: any) => {
     );
 };
 
-const CourseDiscussions = () => {
+const CourseDiscussions = (props: any) => {
+    const { selectedCourse } = props;
     const [footerPosition, setFooterPosition] = useState(0);
     const [footerHeight, setFooterHeight] = useState(60);
 
@@ -46,7 +47,7 @@ const CourseDiscussions = () => {
         return (
             <View style={styles.containerDiscussions}>
                 <FlatList
-                    data={dummyData?.course_details.discussions}
+                    data={selectedCourse?.discussions}
                     keyExtractor={(item) => `Discussions-main-${item.id}`}
                     contentContainerStyle={styles.containerItemDiscussion}
                     renderItem={({ item }) => (
@@ -192,7 +193,7 @@ const styles = ScaledSheet.create({
     iconSend: {
         height: '25@vs',
         width: '25@s',
-        tintColor: COLORS.primary,
+        tintColor: COLORS.DEFAULT_GREEN,
     },
     containerIconSend: {
         alignItems: 'center',

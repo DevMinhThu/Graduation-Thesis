@@ -30,7 +30,7 @@ const styles = ScaledSheet.create({
         bottom: 0,
         height: 4,
         borderRadius: SIZES.radius,
-        backgroundColor: COLORS.primary,
+        backgroundColor: COLORS.DEFAULT_GREEN,
     },
 });
 

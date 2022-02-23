@@ -10,6 +10,7 @@ const AUTHENTICATE_ROUTE = {
 const APP_ROUTE = {
     MAIN_TAB: 'MAIN_TAB',
     COURSE_DETAIL: 'COURSE_DETAIL',
+    VIRO_AR: 'VIRO_AR',
 };
 
 const HOME_ROUTE = {

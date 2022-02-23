@@ -104,8 +104,8 @@ const CourseDetails = ({ route }: any) => {
                         return (
                             <View style={{ width: SIZES.width }}>
                                 {index === 0 && <CourseChapters selectedCourse={selectedCourse} />}
-                                {index === 1 && <CourseFiles />}
-                                {index === 2 && <CourseDiscussions />}
+                                {index === 1 && <CourseFiles selectedCourse={selectedCourse} />}
+                                {index === 2 && <CourseDiscussions selectedCourse={selectedCourse} />}
                             </View>
                         );
                     }}

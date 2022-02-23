@@ -5,6 +5,7 @@ import { Animated, Image, StyleSheet, Text } from 'react-native';
 import { interpolate, useAnimatedStyle, useSharedValue, withDelay, withTiming } from 'react-native-reanimated';
 import { ScaledSheet } from 'react-native-size-matters';
 import { SharedElement } from 'react-navigation-shared-element';
+import { isIos } from 'utilities/helper';
 import { IconButton } from '../../../components/common';
 import { COLORS, FONTS, icons, images } from '../../../constants';
 
@@ -100,7 +101,7 @@ const styles = ScaledSheet.create({
     },
     containerIconBack: {
         position: 'absolute',
-        top: '50@vs',
+        top: isIos ? '50@vs' : '25@vs',
         left: '20@s',
         width: '45@s',
         height: '45@vs',

@@ -41,7 +41,7 @@ const styles = ScaledSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         borderRadius: 10,
-        backgroundColor: COLORS.primary,
+        backgroundColor: COLORS.DEFAULT_GREEN,
     },
 });
 
