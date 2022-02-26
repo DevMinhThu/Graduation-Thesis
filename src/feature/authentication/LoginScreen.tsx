@@ -1,21 +1,27 @@
+/* eslint-disable no-underscore-dangle */
 /* eslint-disable react/no-unescaped-entities */
 import { yupResolver } from '@hookform/resolvers/yup';
 import Metrics from 'assets/metrics';
 import { Themes } from 'assets/themes';
 import { StyledButton, StyledInputForm, StyledText, StyledTouchable } from 'components/base';
+import AlertMessage from 'components/base/AlertMessage';
 import StyledOverlayLoading from 'components/base/StyledOverlayLoading';
 import StyledHeader from 'components/common/StyledHeader';
+import { signInWithEmailAndPassword } from 'firebase/auth';
 import { AUTHENTICATE_ROUTE } from 'navigation/config/routes';
 import { navigate } from 'navigation/NavigationService';
 import React, { FunctionComponent, useRef, useState } from 'react';
 import { FormProvider, useForm } from 'react-hook-form';
-import { SafeAreaView, View, Text, TouchableOpacity, Image } from 'react-native';
+import { Image, Keyboard, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
+import { AccessToken, LoginManager } from 'react-native-fbsdk-next';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { ScaledSheet } from 'react-native-size-matters';
-import { useLogin } from 'utilities/authenticate/AuthenticateService';
+import { useDispatch } from 'react-redux';
+import { isIos } from 'utilities/helper';
 import yupValidate from 'utilities/yupValidate';
 import * as yup from 'yup';
-import { icons, COLORS, images } from '../../constants';
+import { COLORS, icons, images } from '../../constants';
+import { authentication } from '../../firebase/firebase-config';
 
 const DEFAULT_FORM: any = {
     email: '',
@@ -25,7 +31,8 @@ const DEFAULT_FORM: any = {
 const LoginScreen: FunctionComponent = () => {
     const passwordRef = useRef<any>(null);
     const [isSecureEntry, setIsSecureEntry] = useState(true);
-    const { requestLogin, loading } = useLogin();
+    const [isLoading, setIsLoading] = useState(false);
+    const dispatch = useDispatch();
 
     const yupSchema = yup.object().shape({
         email: yupValidate.email(),
@@ -40,6 +47,7 @@ const LoginScreen: FunctionComponent = () => {
     });
     const {
         formState: { isValid },
+        getValues,
         handleSubmit,
     } = form;
 
@@ -54,6 +62,34 @@ const LoginScreen: FunctionComponent = () => {
         setIsSecureEntry(!isSecureEntry);
     };
 
+    const handleLogin = async () => {
+        try {
+            setIsLoading(true);
+            const res = await signInWithEmailAndPassword(authentication, getValues('email'), getValues('password'));
+            const { idToken } = res?._tokenResponse;
+            dispatch({ type: 'USER_FETCH_REQUESTED', payload: { idToken } });
+        } catch (error: any) {
+            Keyboard.dismiss();
+            AlertMessage(JSON.stringify(error?.code));
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    const signInFacebook = async () => {
+        try {
+            if (!isIos) {
+                LoginManager.setLoginBehavior('web_only');
+            }
+            await LoginManager.logInWithPermissions(['public_profile', 'email']);
+            const data: any = await AccessToken.getCurrentAccessToken();
+            const { accessToken } = data;
+            dispatch({ type: 'USER_FETCH_REQUESTED', payload: { accessToken } });
+        } catch (error: any) {
+            console.log(JSON.stringify(error));
+        }
+    };
+
     return (
         <KeyboardAwareScrollView
             contentContainerStyle={styles.container}
@@ -62,8 +98,8 @@ const LoginScreen: FunctionComponent = () => {
             showsVerticalScrollIndicator={false}
             enableResetScrollToCoords={false}
         >
-            <StyledOverlayLoading visible={loading} />
             <StyledHeader title={'Sign In'} customStyle={styles.header} />
+            <StyledOverlayLoading visible={isLoading} />
             <SafeAreaView style={styles.body}>
                 <StyledText i18nText="authen.login.title" customStyle={styles.title} />
                 <StyledText i18nText="authen.login.description" customStyle={styles.description} />
@@ -81,6 +117,7 @@ const LoginScreen: FunctionComponent = () => {
                         customPlaceHolder="authen.login.placeholderPassword"
                         ref={passwordRef}
                         returnKeyType="done"
+                        onSubmitEditing={handleSubmit(handleLogin)}
                         maxLength={20}
                         secureTextEntry={isSecureEntry}
                         handleTogglePassword={handleTogglePassword}
@@ -95,12 +132,14 @@ const LoginScreen: FunctionComponent = () => {
                         />
                     </StyledTouchable>
                 </View>
-
                 <StyledButton
-                    onPress={handleSubmit(requestLogin)}
+                    onPress={handleSubmit(handleLogin)}
                     title="authen.login.buttonLogin"
                     disabled={!isValid}
-                    customStyle={styles.loginButton}
+                    customStyle={[
+                        styles.loginButton,
+                        isValid ? { backgroundColor: COLORS.DEFAULT_GREEN } : { backgroundColor: COLORS.DEFAULT_GREY },
+                    ]}
                     customStyleText={styles.labelBtnLogin}
                 />
 
@@ -113,7 +152,7 @@ const LoginScreen: FunctionComponent = () => {
                 <StyledText i18nText="OR" customStyle={styles.labelOr} />
 
                 {/* Social */}
-                <TouchableOpacity style={styles.facebookButton}>
+                <TouchableOpacity style={styles.facebookButton} onPress={signInFacebook}>
                     <View style={styles.socialButtonsContainer}>
                         <View style={styles.signinButtonLogoContainer}>
                             <Image source={images.FACEBOOK} style={styles.signinButtonLogo} />
@@ -139,7 +178,7 @@ const styles = ScaledSheet.create({
         flex: 1,
     },
     header: {
-        marginTop: '50@vs',
+        marginTop: isIos ? '50@vs' : '25@vs',
     },
     body: {
         flex: 1,
@@ -150,7 +189,6 @@ const styles = ScaledSheet.create({
         borderWidth: 0,
         width: '345@s',
         paddingVertical: '13@vs',
-        backgroundColor: COLORS.DEFAULT_GREEN,
     },
     registerButton: {
         marginTop: 20,
@@ -225,7 +263,7 @@ const styles = ScaledSheet.create({
     },
     socialSigninButtonText: {
         color: COLORS.DEFAULT_WHITE,
-        fontSize: 13,
+        fontSize: '14@ms',
         lineHeight: 13 * 1.4,
     },
     googleButton: {
