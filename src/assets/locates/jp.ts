@@ -55,7 +55,7 @@ export default {
         login: {
             title: 'Welcome to \nOnlineLearning',
             description: 'Enter your Email address for sign in. \nEnjoy your studies',
-            placeholderEmail: 'Username',
+            placeholderEmail: 'Email Address',
             placeholderPassword: 'Password',
             buttonLogin: 'Sign In',
             rememberText: 'ログイン状態を保持',
@@ -75,7 +75,7 @@ export default {
             cancel: 'キャンセル',
         },
         sendEmail: {
-            title: 'Email address',
+            title: 'Email Address',
             sendButtonTitle: '次へ',
         },
     },

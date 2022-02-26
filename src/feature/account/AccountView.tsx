@@ -1,7 +1,10 @@
 import { StyledText } from 'components/base';
+import AlertMessage from 'components/base/AlertMessage';
+import StyledOverlayLoading from 'components/base/StyledOverlayLoading';
 import React, { useState } from 'react';
-import { Image, ScrollView, TouchableOpacity, View } from 'react-native';
+import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
+import AuthenticateService from 'utilities/authenticate/AuthenticateService';
 import { isIos } from 'utilities/helper';
 import { IconButton, LineDivider, ProfileRadioButton, ProfileValue, ProgressBar } from '../../components/common';
 import { COLORS, FONTS, icons, SIZES } from '../../constants';
@@ -9,6 +12,18 @@ import { COLORS, FONTS, icons, SIZES } from '../../constants';
 const AccountView = () => {
     const [newCourseNotification, setNewCourseNotification] = useState(false);
     const [studyReminder, setStudyReminder] = useState(false);
+    const [isLoading, setIsLoading] = useState(false);
+
+    const handleLogOut = () => {
+        try {
+            setIsLoading(true);
+            AuthenticateService.logOut();
+        } catch (error) {
+            AlertMessage(JSON.stringify(error));
+        } finally {
+            setIsLoading(false);
+        }
+    };
 
     return (
         <View style={styles.container}>
@@ -73,6 +88,12 @@ const AccountView = () => {
                         isSelected={studyReminder}
                         onPress={() => setStudyReminder(!studyReminder)}
                     />
+                </View>
+                <View style={styles.containerLogOut}>
+                    <StyledOverlayLoading visible={isLoading} />
+                    <TouchableOpacity style={styles.btnLogOut} onPress={handleLogOut}>
+                        <Text style={styles.labelLogOut}>Log Out</Text>
+                    </TouchableOpacity>
                 </View>
             </ScrollView>
         </View>
@@ -176,6 +197,22 @@ const styles = ScaledSheet.create({
         borderWidth: 1,
         borderRadius: SIZES.radius,
         borderColor: COLORS.gray20,
+    },
+    btnLogOut: {
+        backgroundColor: COLORS.DEFAULT_GREEN,
+        width: '100@s',
+        height: '35@vs',
+        borderRadius: 10,
+        justifyContent: 'center',
+        alignItems: 'center',
+    },
+    labelLogOut: {
+        color: COLORS.white,
+        ...FONTS.h3,
+    },
+    containerLogOut: {
+        marginTop: SIZES.padding,
+        alignItems: 'center',
     },
 });
 

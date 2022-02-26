@@ -30,7 +30,7 @@ const getUserInfoRequest: Reducer<PayloadAction<string>> = (state) => {
 
 const getUserInfoSuccess: Reducer<PayloadAction<IUser>> = (state, { payload }) => {
     state.status = CommonStatus.SUCCESS;
-    state.user = payload;
+    state.token = payload;
 };
 
 const getUserInfoFailed: Reducer<PayloadAction<any>> = (state, { payload }) => {

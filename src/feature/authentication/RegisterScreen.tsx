@@ -1,10 +1,12 @@
+/* eslint-disable no-underscore-dangle */
 import { yupResolver } from '@hookform/resolvers/yup';
-import { checkIsExistEmail, getVerifyCode } from 'api/modules/api-app/authenticate';
 import { Themes } from 'assets/themes';
 import { StyledButton, StyledText } from 'components/base';
 import AlertMessage from 'components/base/AlertMessage';
 import StyledInputForm from 'components/base/StyledInputForm';
+import StyledOverlayLoading from 'components/base/StyledOverlayLoading';
 import StyledHeader from 'components/common/StyledHeader';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { AUTHENTICATE_ROUTE } from 'navigation/config/routes';
 import { navigate } from 'navigation/NavigationService';
 import React, { FunctionComponent, useRef, useState } from 'react';
@@ -13,20 +15,24 @@ import { useTranslation } from 'react-i18next';
 import { Image, SafeAreaView, Text, TouchableOpacity, View } from 'react-native';
 import { KeyboardAwareScrollView } from 'react-native-keyboard-aware-scroll-view';
 import { ScaledSheet } from 'react-native-size-matters';
+import { useDispatch } from 'react-redux';
+import { isIos } from 'utilities/helper';
 import yupValidate from 'utilities/yupValidate';
 import * as yup from 'yup';
 import { COLORS, icons, images } from '../../constants';
+import { authentication } from '../../firebase/firebase-config';
 
 const RegisterScreen: FunctionComponent = () => {
     const { t } = useTranslation();
+    const dispatch = useDispatch();
     const passwordRef = useRef<any>(null);
     const passwordConfirmRef = useRef<any>(null);
     const [isSecureEntry, setIsSecureEntry] = useState(true);
+    const [isLoading, setIsLoading] = useState(false);
 
     const registerSchema = yup.object().shape({
         email: yupValidate.email(),
         password: yupValidate.password(),
-        confirmPassword: yupValidate.password('password'),
     });
 
     const form = useForm({
@@ -35,21 +41,25 @@ const RegisterScreen: FunctionComponent = () => {
     });
     const {
         formState: { isValid },
+        getValues,
         handleSubmit,
     } = form;
 
-    const submit = async (user: any) => {
-        const res = await checkIsExistEmail(user?.email);
-        if (res?.data?.isExisted) {
-            AlertMessage(t('error.emailExisted'));
-            return;
-        }
-        await getVerifyCode(user?.email);
-        navigate(AUTHENTICATE_ROUTE.SEND_OTP, { ...user, register: true });
-    };
-
     const handleTogglePassword = () => {
         setIsSecureEntry(!isSecureEntry);
+    };
+
+    const handleRegister = async () => {
+        try {
+            setIsLoading(true);
+            const res = await createUserWithEmailAndPassword(authentication, getValues('email'), getValues('password'));
+            const { idToken } = res?._tokenResponse;
+            dispatch({ type: 'USER_FETCH_REQUESTED', payload: { idToken } });
+        } catch (error: any) {
+            AlertMessage(JSON.stringify(error?.code));
+        } finally {
+            setIsLoading(false);
+        }
     };
 
     return (
@@ -59,21 +69,11 @@ const RegisterScreen: FunctionComponent = () => {
             showsVerticalScrollIndicator={false}
         >
             <StyledHeader title={'Sign Up'} customStyle={styles.header} />
+            <StyledOverlayLoading visible={isLoading} />
             <SafeAreaView style={styles.body}>
                 <StyledText i18nText="authen.register.title" customStyle={styles.title} />
-                <Text style={styles.description}>
-                    Enter your Email address and Password for sign up.
-                    <Text style={styles.titleSignUp}> Already have account?</Text>
-                </Text>
+                <Text style={styles.description}>Enter your Email address and Password for sign up.</Text>
                 <FormProvider {...form}>
-                    <StyledInputForm
-                        name={'user'}
-                        placeholder={t('authen.login.placeholderEmail')}
-                        keyboardType="default"
-                        returnKeyType={'next'}
-                        onSubmitEditing={() => passwordRef.current.focus()}
-                        iconLeft={icons.profile}
-                    />
                     <StyledInputForm
                         name={'email'}
                         placeholder={t('authen.sendEmail.title')}
@@ -94,14 +94,19 @@ const RegisterScreen: FunctionComponent = () => {
                         iconLeft={icons.lock_pass}
                     />
                 </FormProvider>
-
                 <StyledButton
-                    onPress={handleSubmit(submit)}
+                    onPress={handleSubmit(handleRegister)}
                     title="Create Account"
                     disabled={!isValid}
-                    customStyle={styles.loginButton}
-                    customStyleText={styles.labelBtnLogin}
+                    customStyle={[
+                        styles.registerButton,
+                        isValid ? { backgroundColor: COLORS.DEFAULT_GREEN } : { backgroundColor: COLORS.DEFAULT_GREY },
+                    ]}
+                    customStyleText={styles.labelBtnRegister}
                 />
+                <TouchableOpacity style={styles.redirectLogin} onPress={() => navigate(AUTHENTICATE_ROUTE.LOGIN)}>
+                    <Text style={styles.titleSignUp}> Already have account?</Text>
+                </TouchableOpacity>
                 <StyledText i18nText="OR" customStyle={styles.labelOr} />
 
                 {/* Social */}
@@ -134,18 +139,14 @@ const styles = ScaledSheet.create({
         flex: 1,
         alignItems: 'center',
     },
-    loginButton: {
+    registerButton: {
         marginTop: 20,
         borderWidth: 0,
         width: '345@s',
         paddingVertical: '13@vs',
-        backgroundColor: COLORS.DEFAULT_GREEN,
-    },
-    registerButton: {
-        marginTop: 20,
     },
     header: {
-        marginTop: '50@vs',
+        marginTop: isIos ? '50@vs' : '25@vs',
     },
     title: {
         fontSize: 22,
@@ -165,7 +166,7 @@ const styles = ScaledSheet.create({
     titleSignUp: {
         color: COLORS.DEFAULT_GREEN,
     },
-    labelBtnLogin: {
+    labelBtnRegister: {
         color: Themes.COLORS.white,
         fontWeight: 'bold',
         fontSize: '16@ms',
@@ -204,7 +205,7 @@ const styles = ScaledSheet.create({
     },
     socialSigninButtonText: {
         color: COLORS.DEFAULT_WHITE,
-        fontSize: 13,
+        fontSize: '14@ms',
         lineHeight: 13 * 1.4,
     },
     googleButton: {
@@ -215,6 +216,9 @@ const styles = ScaledSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
         width: '345@s',
+    },
+    redirectLogin: {
+        marginTop: '20@vs',
     },
 });
 export default RegisterScreen;
