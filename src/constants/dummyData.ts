@@ -311,12 +311,12 @@ const categories = [
                         author: 'Shared by VMT',
                         upload_date: '7th Sep 2021',
                         thumbnail: require('../assets/images/ar.png'),
-                        obj: require('../feature/viroAR/modals/character/2nrtbod1out.obj'),
-                        diffuseTexture: require('../feature/viroAR/modals/character/ntxr001.png'),
-                        scale: [0.009, 0.009, 0.009],
+                        obj: require('../feature/viroAR/modals/character/Pokemon.obj'),
+                        diffuseTexture: require('../feature/viroAR/modals/character/Final_Pokemon_Diffuse.jpg'),
+                        scale: [0.6, 0.6, 0.6],
                         type: 'OBJ',
-                        position: [0, -2, -3],
-                        rotation: [-100, 0, 0],
+                        position: [0, -1, -3],
+                        rotation: [0, 0, 0],
                     },
                 ],
                 discussions: [
@@ -1094,6 +1094,7 @@ const categories = [
     },
 ];
 
+// done
 const courses_list_horizontal = [
     {
         id: 0,
@@ -1133,13 +1134,13 @@ const courses_list_horizontal = [
         files: [
             {
                 id: 0,
-                name: 'SpaceShip Modal',
+                name: 'Wikiplanet Space Station (WSS)',
                 author: 'Shared by VMT',
                 upload_date: '13th Sep 2021',
                 thumbnail: require('../assets/images/ar.png'),
-                obj: require('../feature/viroAR/modals/spaceship/spaceship.obj'),
-                diffuseTexture: require('../feature/viroAR/modals/spaceship/BLF1.jpg'),
-                scale: [1.5, 1.5, 1.5],
+                obj: require('../feature/viroAR/modals/spaceship/model.obj'),
+                diffuseTexture: require('../feature/viroAR/modals/spaceship/hexagonal.jpg'),
+                scale: [0.4, 0.4, 0.4],
                 type: 'OBJ',
                 position: [0, -1, -3],
                 rotation: [0, 0, 0],
@@ -1448,13 +1449,13 @@ const courses_list_vertical = [
         files: [
             {
                 id: 0,
-                name: 'Car Modal',
+                name: 'Tank Modal',
                 author: 'Shared by VMT',
                 upload_date: '13th Sep 2021',
                 thumbnail: require('../assets/images/ar.png'),
-                obj: require('../feature/viroAR/modals/car/car.obj'),
-                diffuseTexture: require('../feature/viroAR/modals/car/cp2.jpg'),
-                scale: [0.005, 0.005, 0.005],
+                obj: require('../feature/viroAR/modals/car/tank.obj'),
+                diffuseTexture: require('../feature/viroAR/modals/car/texture_1.jpg'),
+                scale: [0.01, 0.01, 0.01],
                 type: 'OBJ',
                 position: [0, -1, -3],
                 rotation: [0, 0, 0],

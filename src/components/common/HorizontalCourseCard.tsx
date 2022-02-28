@@ -9,7 +9,8 @@ const HorizontalCourseCard = (props: any) => {
     return (
         <TouchableOpacity style={[styles.viewCourse, containerStyle]} onPress={onPress}>
             {/* thumbnail */}
-            <Image source={course.thumbnail} resizeMode="cover" style={styles.imageCourse} />
+            {/* <Image source={course?.thumbnail} resizeMode="cover" style={styles.imageCourse} /> */}
+            <Image source={{ uri: course?.thumbnail }} resizeMode="cover" style={styles.imageCourse} />
             {/* Detail */}
             <View style={styles.containerCourseInfo}>
                 {/* play */}

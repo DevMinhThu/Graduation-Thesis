@@ -30,7 +30,8 @@ const CourseFiles = (props: any) => {
                                 key={`Students-${index}`}
                                 style={[styles.containerItemStudent, { marginLeft: index > 0 ? SIZES.radius : 0 }]}
                             >
-                                <Image source={item?.thumbnail} style={styles.imgStudent} />
+                                {/* <Image source={item?.thumbnail} style={styles.imgStudent} /> */}
+                                <Image source={{ uri: item?.thumbnail }} style={styles.imgStudent} />
                             </View>
                         );
                     })}
@@ -60,7 +61,8 @@ const CourseFiles = (props: any) => {
                             onPress={() => navigate(APP_ROUTE.VIRO_AR, { item })}
                         >
                             {/* Thumbnail */}
-                            <Image source={item?.thumbnail} resizeMode="cover" style={styles.imgStudent} />
+                            {/* <Image source={item?.thumbnail} resizeMode="cover" style={styles.imgStudent} /> */}
+                            <Image source={{ uri: item?.thumbnail }} resizeMode="cover" style={styles.imgStudent} />
                             {/* Name, author & date */}
                             <View style={styles.infoFile}>
                                 <Text style={styles.nameFile}>{item?.name}</Text>
@@ -128,6 +130,7 @@ const styles = ScaledSheet.create({
     containerItemFiles: {
         flexDirection: 'row',
         marginTop: SIZES.radius,
+        alignItems: 'center',
     },
     infoFile: {
         flex: 1,

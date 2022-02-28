@@ -1,8 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { goBack } from 'navigation/NavigationService';
 import React from 'react';
-import { Animated, Image, StyleSheet, Text } from 'react-native';
-import { interpolate, useAnimatedStyle, useSharedValue, withDelay, withTiming } from 'react-native-reanimated';
+import { View, Image, StyleSheet, Text } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
 import { SharedElement } from 'react-navigation-shared-element';
 import { isIos } from 'utilities/helper';
@@ -12,45 +11,25 @@ import { COLORS, FONTS, icons, images } from '../../../constants';
 const HeaderCourseListScreen = (props: any) => {
     const { sharedElementPrefix, category } = props;
 
-    const headerSharedValue = useSharedValue(80);
-
-    headerSharedValue.value = withDelay(500, withTiming(0, { duration: 500 }));
-
-    const headerFadeAnimatedStyle = useAnimatedStyle(() => {
-        return {
-            opacity: interpolate(headerSharedValue.value, [80, 0], [0, 1]),
-        };
-    });
-
-    const headerTranslateAnimatedStyle = useAnimatedStyle(() => {
-        return {
-            transform: [
-                {
-                    translateY: headerSharedValue.value,
-                },
-            ],
-        };
-    });
-
     return (
-        <Animated.View style={styles.containerHeader}>
+        <View style={styles.containerHeader}>
             <SharedElement
                 id={`${sharedElementPrefix}-CategoryCard-Bg-${category?.id}`}
                 style={[StyleSheet.absoluteFillObject]}
             >
-                <Image source={category?.thumbnail} resizeMode="cover" style={styles.imageBackgroundHeader} />
+                <Image source={{ uri: category?.thumbnail }} resizeMode="cover" style={styles.imageBackgroundHeader} />
             </SharedElement>
             {/* Title */}
-            <Animated.View style={[styles.viewTitle]}>
+            <View style={[styles.viewTitle]}>
                 <SharedElement
                     id={`${sharedElementPrefix}-CategoryCard-Title-${category?.id}`}
                     style={[StyleSheet.absoluteFillObject]}
                 >
                     <Text style={styles.titleText}>{category?.title}</Text>
                 </SharedElement>
-            </Animated.View>
+            </View>
             {/* Back */}
-            <Animated.View style={headerFadeAnimatedStyle}>
+            <View>
                 <IconButton
                     icon={icons.ic_back}
                     iconStyle={styles.iconBack}
@@ -59,14 +38,10 @@ const HeaderCourseListScreen = (props: any) => {
                         goBack();
                     }}
                 />
-            </Animated.View>
+            </View>
             {/* Category Image */}
-            <Animated.Image
-                source={images.mobile_image}
-                resizeMode="contain"
-                style={[styles.categoryImage, headerFadeAnimatedStyle, headerTranslateAnimatedStyle]}
-            />
-        </Animated.View>
+            <Image source={images.mobile_image} resizeMode="contain" style={styles.categoryImage} />
+        </View>
     );
 };
 

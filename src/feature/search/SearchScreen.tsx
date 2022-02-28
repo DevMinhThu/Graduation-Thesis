@@ -1,17 +1,40 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { CategoryCard, TextButton } from 'components/common';
+import { collection, getDocs } from 'firebase/firestore/lite';
 import { TAB_NAVIGATION_ROOT } from 'navigation/config/routes';
 import { navigate } from 'navigation/NavigationService';
-import React, { FunctionComponent, useState } from 'react';
+import React, { FunctionComponent, useEffect, useState } from 'react';
 import { ScrollView, Text, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { ScaledSheet } from 'react-native-size-matters';
 import { isIos } from 'utilities/helper';
-import { COLORS, dummyData, FONTS, SIZES } from '../../constants';
+import { COLORS, FONTS, SIZES } from '../../constants';
+import { DataBase } from '../../firebase/firebase-config';
 import SearchBar from './components/SearchBar';
 
 const SearchScreen: FunctionComponent = () => {
     const [keyword, setKeyword] = useState('');
+    const [topSearches, setTopSearches] = useState<any>([]);
+    const [categories, setCategories] = useState<any>();
+
+    useEffect(() => {
+        getTopSearches();
+        getCategories();
+    }, []);
+
+    const getTopSearches = async () => {
+        const topSearchesCollection = collection(DataBase, 'topSearches');
+        const topSearchesSnapshot = await getDocs(topSearchesCollection);
+        const topSearchesList = topSearchesSnapshot.docs.map((doc) => doc.data());
+        setTopSearches(topSearchesList);
+    };
+
+    const getCategories = async () => {
+        const categoriesCollection = collection(DataBase, 'categories');
+        const categoriesSnapshot = await getDocs(categoriesCollection);
+        const categoriesList = categoriesSnapshot.docs.map((doc) => doc.data());
+        setCategories(categoriesList);
+    };
 
     const renderTopSearches = () => {
         return (
@@ -19,7 +42,7 @@ const SearchScreen: FunctionComponent = () => {
                 <Text style={styles.titleSearchBar}>Top Searches</Text>
                 <FlatList
                     horizontal
-                    data={dummyData.top_searches}
+                    data={topSearches}
                     listKey="TopSearches"
                     keyExtractor={(item) => `TopSearches-${item.id}`}
                     showsHorizontalScrollIndicator={false}
@@ -31,7 +54,7 @@ const SearchScreen: FunctionComponent = () => {
                                 styles.styleOptionSearches,
                                 {
                                     marginLeft: index === 0 ? SIZES.padding : SIZES.radius,
-                                    marginRight: index === dummyData.top_searches.length - 1 ? SIZES.padding : 0,
+                                    marginRight: index === topSearches.length - 1 ? SIZES.padding : 0,
                                 },
                             ]}
                             labelStyle={styles.labelOption}
@@ -47,7 +70,7 @@ const SearchScreen: FunctionComponent = () => {
             <View style={styles.containerSearch}>
                 <Text style={styles.titleSearchBar}>Browse Categories</Text>
                 <FlatList
-                    data={dummyData.categories}
+                    data={categories}
                     numColumns={2}
                     scrollEnabled={false}
                     listKey="BrowseCategories"
@@ -138,6 +161,7 @@ const styles = ScaledSheet.create({
         paddingHorizontal: SIZES.padding,
         height: '50@vs',
         marginTop: isIos ? '50@vs' : '25@vs',
+        marginBottom: '15@vs',
     },
     styleSearchBar: {
         flex: 1,

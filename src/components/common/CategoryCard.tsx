@@ -13,7 +13,7 @@ const CategoryCard = (props: any) => {
                 id={`${sharedElementPrefix}-CategoryCard-Bg-${category?.id}`}
             >
                 {/* Image Background */}
-                <Image source={category?.thumbnail} resizeMode="contain" style={styles.styleImageBackground} />
+                <Image source={{ uri: category?.thumbnail }} resizeMode="contain" style={styles.styleImageBackground} />
                 {/* Title */}
                 <View style={styles.viewTitle}>
                     <SharedElement
