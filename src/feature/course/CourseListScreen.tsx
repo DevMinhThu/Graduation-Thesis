@@ -3,27 +3,20 @@
 import { APP_ROUTE } from 'navigation/config/routes';
 import { navigate } from 'navigation/NavigationService';
 import React, { useRef } from 'react';
-import { Animated, FlatList, View } from 'react-native';
-import { useAnimatedScrollHandler, useSharedValue } from 'react-native-reanimated';
+import { FlatList, View } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
 import { LineDivider, VerticalCourseCard } from '../../components/common';
 import { COLORS, FONTS, SIZES } from '../../constants';
 import HeaderCourseListScreen from './components/HeaderCourseListScreen';
 import ListCourseHeader from './components/ListCourseHeader';
 
-const AnimatedFlatList = Animated.createAnimatedComponent(FlatList);
-
 const CourseListScreen = ({ route }: any) => {
     const { category, sharedElementPrefix } = route?.params;
     const flatListRef = useRef();
-    const scrollY = useSharedValue(0);
-    const onScroll = useAnimatedScrollHandler((event) => {
-        scrollY.value = event.contentOffset.y;
-    });
 
     const renderListCourse = () => {
         return (
-            <AnimatedFlatList
+            <FlatList
                 ref={flatListRef}
                 data={category?.listCourses}
                 keyExtractor={(item: any) => `ListCourse-${item.id}`}
@@ -31,7 +24,6 @@ const CourseListScreen = ({ route }: any) => {
                 showsVerticalScrollIndicator={false}
                 scrollEventThrottle={16}
                 keyboardDismissMode="on-drag"
-                onScroll={() => onScroll}
                 ListHeaderComponent={<ListCourseHeader category={category} />}
                 renderItem={({ item, index }) => (
                     <VerticalCourseCard

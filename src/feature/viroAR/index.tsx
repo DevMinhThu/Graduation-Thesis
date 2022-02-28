@@ -12,7 +12,7 @@ import {
 } from '@viro-community/react-viro';
 import React, { useState } from 'react';
 import { Image, Text, TouchableOpacity, View } from 'react-native';
-import { ScaledSheet } from 'react-native-size-matters';
+import { ScaledSheet, verticalScale } from 'react-native-size-matters';
 import { COLORS, icons } from '../../constants';
 
 const ViroSceneAR = (props: any) => {
@@ -38,7 +38,8 @@ const ViroSceneAR = (props: any) => {
         materials: {
             shininess: 1,
             lightingModel: 'Blinn',
-            diffuseTexture,
+            diffuseTexture: { uri: diffuseTexture },
+            // diffuseTexture,
         },
     });
 
@@ -48,6 +49,18 @@ const ViroSceneAR = (props: any) => {
             duration: 2500,
             properties: {
                 rotateY: '+=90',
+            },
+        },
+        moveRight: {
+            duration: 2500,
+            properties: {
+                positionX: '+=1',
+            },
+        },
+        moveLeft: {
+            duration: 2500,
+            properties: {
+                positionX: '-=1',
             },
         },
     });
@@ -96,7 +109,8 @@ const ViroSceneAR = (props: any) => {
                 intensity={250}
             />
             <Viro3DObject
-                source={obj}
+                // source={obj}
+                source={{ uri: obj }}
                 position={positionState}
                 scale={scaleState}
                 rotation={rotationState}
@@ -105,7 +119,7 @@ const ViroSceneAR = (props: any) => {
                 onDrag={moveObject}
                 onRotate={rotateObject}
                 onPinch={scaleObject}
-                animation={{ name: 'rotate', loop: true, run: data?.animation }}
+                animation={{ name: data?.moveControls, loop: true, run: data?.animation }}
             />
         </ViroARScene>
     );
@@ -116,22 +130,41 @@ export default ({ route }: any) => {
     const { item } = route?.params;
     const [object] = useState(item);
     const [animation, setAnimation] = useState(false);
+    const [moveControls, setMoveControls] = useState<string>('');
 
     return (
         <View style={styles.mainView}>
             <ViroARSceneNavigator
                 autofocus={true}
-                viroAppProps={{ object, animation }}
+                viroAppProps={{ object, animation, moveControls }}
                 initialScene={{ scene: ViroSceneAR }}
                 style={styles.f1}
             />
 
             <View style={styles.controlsView}>
-                <Text numberOfLines={1} style={styles.nameModal}>
-                    {object?.name}
-                </Text>
-                <TouchableOpacity style={styles.textBtnControls} onPress={() => setAnimation(!animation)}>
-                    <Image source={animation ? icons.pause : icons.play} resizeMode="contain" style={styles.iconPlay} />
+                <TouchableOpacity style={[styles.textBtnControls]} onPress={() => setMoveControls('moveLeft')}>
+                    <Text style={styles.labelMoveControl}> Left</Text>
+                </TouchableOpacity>
+                <View style={styles.rotationsModal}>
+                    <Text numberOfLines={1} style={styles.nameModal}>
+                        {object?.name}
+                    </Text>
+                    <TouchableOpacity style={[styles.textBtnControls]} onPress={() => setAnimation(!animation)}>
+                        <Image
+                            source={animation ? icons.pause : icons.play}
+                            resizeMode="contain"
+                            style={styles.iconPlay}
+                        />
+                    </TouchableOpacity>
+                    <TouchableOpacity
+                        style={[styles.textBtnControls, { marginVertical: verticalScale(5) }]}
+                        onPress={() => setMoveControls('rotate')}
+                    >
+                        <Text style={styles.labelMoveControl}> Rotate</Text>
+                    </TouchableOpacity>
+                </View>
+                <TouchableOpacity style={styles.textBtnControls} onPress={() => setMoveControls('moveRight')}>
+                    <Text style={styles.labelMoveControl}> Right</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -151,8 +184,14 @@ const styles = ScaledSheet.create({
     },
     controlsView: {
         width: '100%',
-        height: 100,
         alignItems: 'center',
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        paddingHorizontal: '15@s',
+    },
+    rotationsModal: {
+        alignItems: 'center',
+        justifyContent: 'space-between',
     },
     textBtnControls: {
         backgroundColor: COLORS.DEFAULT_GREEN,
@@ -164,10 +203,15 @@ const styles = ScaledSheet.create({
     nameModal: {
         fontSize: 18,
         fontWeight: 'bold',
-        marginVertical: 5,
+        marginVertical: '5@vs',
+        width: '200@s',
+        textAlign: 'center',
     },
     iconPlay: {
         width: '30@s',
         height: '30@vs',
+    },
+    labelMoveControl: {
+        color: COLORS.white,
     },
 });

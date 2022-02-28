@@ -1,21 +1,55 @@
+import { collection, getDocs } from 'firebase/firestore/lite';
 import { APP_ROUTE, TAB_NAVIGATION_ROOT } from 'navigation/config/routes';
 import { navigate } from 'navigation/NavigationService';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ScrollView, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { ScaledSheet } from 'react-native-size-matters';
 import { CategoryCard, HorizontalCourseCard, LineDivider, VerticalCourseCard } from '../../components/common';
-import { COLORS, dummyData, SIZES } from '../../constants';
+import { COLORS, SIZES } from '../../constants';
+import { DataBase } from '../../firebase/firebase-config';
 import Header from './components/Header';
 import Section from './components/Section';
 import StartLearning from './components/StartLearning';
 
 const HomeScreen = () => {
+    const [coursesListHorizontal, setCoursesListHorizontal] = useState<any>();
+    const [coursesListVertical, setCoursesListVertical] = useState<any>();
+    const [categories, setCategories] = useState<any>();
+
+    useEffect(() => {
+        getCoursesListHorizontal();
+        getCoursesListVertical();
+        getCategories();
+    }, []);
+
+    const getCoursesListHorizontal = async () => {
+        const coursesListHorizontalCollection = collection(DataBase, 'coursesListHorizontal');
+        const coursesListHorizontalSnapshot = await getDocs(coursesListHorizontalCollection);
+        const coursesListHorizontalList = coursesListHorizontalSnapshot.docs.map((doc) => doc.data());
+        setCoursesListHorizontal(coursesListHorizontalList);
+    };
+
+    const getCoursesListVertical = async () => {
+        const coursesListVerticalCollection = collection(DataBase, 'coursesListVertical');
+        const coursesListVerticalSnapshot = await getDocs(coursesListVerticalCollection);
+        const coursesListVerticalList = coursesListVerticalSnapshot.docs.map((doc) => doc.data());
+        setCoursesListVertical(coursesListVerticalList);
+    };
+
+    const getCategories = async () => {
+        const categoriesCollection = collection(DataBase, 'categories');
+        const categoriesSnapshot = await getDocs(categoriesCollection);
+        const categoriesList = categoriesSnapshot.docs.map((doc) => doc.data());
+        setCategories(categoriesList);
+    };
+
     const renderCourses = () => {
         return (
             <FlatList
                 horizontal
-                data={dummyData.courses_list_horizontal}
+                data={coursesListHorizontal}
+                // data={dummyData.courses_list_horizontal}
                 listKey="Courses"
                 keyExtractor={(item) => `Courses-${item.id}`}
                 showsHorizontalScrollIndicator={false}
@@ -24,7 +58,7 @@ const HomeScreen = () => {
                     <HorizontalCourseCard
                         containerStyle={{
                             marginLeft: index === 0 ? SIZES.padding : SIZES.radius,
-                            marginRight: index === dummyData.courses_list_horizontal.length - 1 ? SIZES.padding : 0,
+                            marginRight: index === coursesListHorizontal.length - 1 ? SIZES.padding : 0,
                         }}
                         course={item}
                         onPress={() => navigate(APP_ROUTE.COURSE_DETAIL, { selectedCourse: item })}
@@ -39,7 +73,8 @@ const HomeScreen = () => {
             <Section title="Categories">
                 <FlatList
                     horizontal
-                    data={dummyData.categories}
+                    // data={dummyData.categories}
+                    data={categories}
                     listKey="Categories"
                     keyExtractor={(item) => `Categories-${item.id}`}
                     showsHorizontalScrollIndicator={false}
@@ -50,7 +85,7 @@ const HomeScreen = () => {
                             category={item}
                             containerStyle={{
                                 marginLeft: index === 0 ? SIZES.padding : SIZES.base,
-                                marginRight: index === dummyData.categories.length - 1 ? SIZES.padding : 0,
+                                marginRight: index === categories.length - 1 ? SIZES.padding : 0,
                             }}
                             onPress={() =>
                                 navigate(TAB_NAVIGATION_ROOT.HOME_ROUTE.COURSE_LIST, {
@@ -69,7 +104,8 @@ const HomeScreen = () => {
         return (
             <Section title="Popular Course" containerStyle={styles.containerPopularCourses}>
                 <FlatList
-                    data={dummyData.courses_list_vertical}
+                    data={coursesListVertical}
+                    // data={dummyData.courses_list_vertical}
                     listKey="PopularCourses"
                     scrollEnabled={false}
                     keyExtractor={(item) => `PopularCourses-${item.id}`}

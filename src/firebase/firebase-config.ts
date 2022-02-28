@@ -1,16 +1,18 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from 'firebase/app';
 import { getAuth } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore/lite';
 
 const firebaseConfig = {
-    apiKey: 'AIzaSyBvwFoFxmi_Z1w61loiNRHzeQCjsedy8PE',
-    authDomain: 'graduation-thesis-6083b.firebaseapp.com',
-    projectId: 'graduation-thesis-6083b',
-    storageBucket: 'graduation-thesis-6083b.appspot.com',
-    messagingSenderId: '821277137565',
-    appId: '1:821277137565:web:7d79b773b169b30b961274',
+    apiKey: 'AIzaSyBs6x7ysGCI6ecDMFK-7bVv6DG7n2clS7w',
+    authDomain: 'graduation-thesis-ced27.firebaseapp.com',
+    projectId: 'graduation-thesis-ced27',
+    storageBucket: 'graduation-thesis-ced27.appspot.com',
+    messagingSenderId: '277398051581',
+    appId: '1:277398051581:web:ca4306c9e0ba188aa5fc94',
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 export const authentication = getAuth(app);
+export const DataBase = getFirestore(app);

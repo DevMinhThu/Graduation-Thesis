@@ -9,7 +9,8 @@ const CommentSection = ({ commentItem, commentOption, replies }: any) => {
     return (
         <View style={styles.containerCommentSection}>
             {/* Profile */}
-            <Image source={commentItem?.profile} style={styles.imgProfile} />
+            {/* <Image source={commentItem?.profile} style={styles.imgProfile} /> */}
+            <Image source={{ uri: commentItem?.profile }} style={styles.imgProfile} />
             {/* Name & comment */}
             <View style={styles.containerContent}>
                 {/* Name */}
