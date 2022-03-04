@@ -1428,22 +1428,29 @@ const courses_list_vertical = [
             {
                 id: 0,
                 name: 'Student 1',
-                thumbnail: require('../assets/images/student_1.png'),
+                thumbnail:
+                    'https://firebasestorage.googleapis.com/v0/b/graduation-thesis-ced27.appspot.com/o/images%2Fstudent_1.png?alt=media&token=c5ecad33-726e-4a35-bf98-a5e2f39cb5a2',
+                // thumbnail: require('../assets/images/student_1.png'),
             },
             {
                 id: 1,
                 name: 'Student 2',
-                thumbnail: require('../assets/images/student_2.png'),
+                thumbnail:
+                    'https://firebasestorage.googleapis.com/v0/b/graduation-thesis-ced27.appspot.com/o/images%2Fstudent_2.png?alt=media&token=c2d1e341-d33f-4dca-8176-9ccc970a8d52',
+                // thumbnail: require('../assets/images/student_2.png'),
             },
             {
                 id: 2,
                 name: 'Student 3',
-                thumbnail: require('../assets/images/student_3.png'),
+                thumbnail:
+                    'https://firebasestorage.googleapis.com/v0/b/graduation-thesis-ced27.appspot.com/o/images%2Fstudent_3.png?alt=media&token=90e33b15-00e5-4010-a331-2ea5f19f3746',
+                // thumbnail: require('../assets/images/student_3.png'),
             },
             {
                 id: 3,
                 name: 'Student 3',
-                thumbnail: require('../assets/images/student_3.png'),
+                thumbnail:
+                    'https://firebasestorage.googleapis.com/v0/b/graduation-thesis-ced27.appspot.com/o/images%2Fstudent_3.png?alt=media&token=90e33b15-00e5-4010-a331-2ea5f19f3746',
             },
         ],
         files: [
@@ -1452,9 +1459,13 @@ const courses_list_vertical = [
                 name: 'Tank Modal',
                 author: 'Shared by VMT',
                 upload_date: '13th Sep 2021',
-                thumbnail: require('../assets/images/ar.png'),
-                obj: require('../feature/viroAR/modals/car/tank.obj'),
-                diffuseTexture: require('../feature/viroAR/modals/car/texture_1.jpg'),
+                thumbnail: 'https://cdn.artandlogic.com/wp-content/uploads/arkit.png',
+                // thumbnail: require('../assets/images/ar.png'),
+                obj: 'https://firebasestorage.googleapis.com/v0/b/graduation-thesis-ced27.appspot.com/o/car%2Ftank.obj?alt=media&token=dc81114f-9523-4866-9e5c-72e1158a57ee',
+                // obj: require('../feature/viroAR/modals/car/tank.obj'),
+                diffuseTexture:
+                    'https://firebasestorage.googleapis.com/v0/b/graduation-thesis-ced27.appspot.com/o/car%2Ftexture_2.jpg?alt=media&token=6032ecaa-8e60-42d5-925a-e1c2090425fe',
+                // diffuseTexture: require('../feature/viroAR/modals/car/texture_1.jpg'),
                 scale: [0.01, 0.01, 0.01],
                 type: 'OBJ',
                 position: [0, -1, -3],
@@ -1464,29 +1475,14 @@ const courses_list_vertical = [
         discussions: [
             {
                 id: 0,
-                profile: require('../assets/images/student_2.png'),
-                name: 'VMT',
+                profile:
+                    'https://yt3.ggpht.com/ytc/AKedOLTnDDUAqHsu-Fb3Q5NBQLCxKEZ5ZFSbZEifw7ba=s68-c-k-c0x00ffffff-no-rj',
+                name: 'Keen Chan',
                 no_of_comments: '11 comments',
                 no_of_likes: '72 likes',
                 posted_on: '5 days ago',
                 comment:
                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-                replies: [
-                    {
-                        id: 0,
-                        profile: require('../assets/images/student_1.png'),
-                        name: 'VMT',
-                        posted_on: '4 days ago',
-                        comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                    },
-                    {
-                        id: 1,
-                        profile: require('../assets/images/student_1.png'),
-                        name: 'VMT',
-                        posted_on: '4 days ago',
-                        comment: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                    },
-                ],
             },
         ],
     },

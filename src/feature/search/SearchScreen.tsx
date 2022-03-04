@@ -1,14 +1,14 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import { CategoryCard, TextButton } from 'components/common';
 import { collection, getDocs } from 'firebase/firestore/lite';
-import { TAB_NAVIGATION_ROOT } from 'navigation/config/routes';
+import { APP_ROUTE, TAB_NAVIGATION_ROOT } from 'navigation/config/routes';
 import { navigate } from 'navigation/NavigationService';
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import { ScrollView, Text, View } from 'react-native';
+import { Image, Keyboard, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { FlatList } from 'react-native-gesture-handler';
 import { ScaledSheet } from 'react-native-size-matters';
 import { isIos } from 'utilities/helper';
-import { COLORS, FONTS, SIZES } from '../../constants';
+import { COLORS, dummyData, FONTS, SIZES } from '../../constants';
 import { DataBase } from '../../firebase/firebase-config';
 import SearchBar from './components/SearchBar';
 
@@ -16,6 +16,8 @@ const SearchScreen: FunctionComponent = () => {
     const [keyword, setKeyword] = useState('');
     const [topSearches, setTopSearches] = useState<any>([]);
     const [categories, setCategories] = useState<any>();
+    const [isSearching, setIsSearching] = useState(false);
+    const [filtered, setFiltered] = useState(dummyData.courses_list_vertical);
 
     useEffect(() => {
         getTopSearches();
@@ -100,28 +102,81 @@ const SearchScreen: FunctionComponent = () => {
     };
 
     const renderSearchBar = () => {
+        const CoursesListSearch = ({ item }: any) => {
+            return (
+                <TouchableOpacity
+                    style={styles.containerItemCourseListSearch}
+                    onPress={() => navigate(APP_ROUTE.COURSE_DETAIL, { selectedCourse: item })}
+                >
+                    {/* Profile Photo */}
+                    <Image source={{ uri: item?.imageProfile }} style={styles.imgProfile} />
+                    {/* Instructor & Title */}
+                    <View style={styles.containerNameTitle}>
+                        <Text numberOfLines={1} style={styles.nameAuthor}>
+                            {item?.title.toUpperCase()}
+                        </Text>
+                        <Text style={styles.titleInstructor}>{item?.instructor}</Text>
+                    </View>
+                </TouchableOpacity>
+            );
+        };
+
+        const onSearch = (text: any) => {
+            if (text) {
+                setIsSearching(true);
+                const newData = filtered.filter((item) => {
+                    const itemData = item.title ? item.title.toUpperCase() : ''.toUpperCase();
+                    const textData = text.toUpperCase();
+                    return itemData.indexOf(textData) > -1;
+                });
+                setFiltered(newData);
+                setKeyword(text);
+            } else {
+                Keyboard.dismiss();
+                setFiltered(dummyData.courses_list_vertical);
+                setIsSearching(false);
+                setKeyword(text);
+            }
+        };
+
+        const onResetSearchBar = () => {
+            Keyboard.dismiss();
+            setKeyword('');
+            setIsSearching(false);
+        };
+
         return (
             <View style={styles.positionSearchBar}>
-                <SearchBar
-                    onResetSearchBar={() => setKeyword('')}
-                    customPlaceHolder={'Search for Topics, Course ...'}
-                    keyword={keyword}
-                    onSearch={setKeyword}
-                    containerStyle={styles.styleSearchBar}
-                />
+                <View style={{ alignItems: 'center' }}>
+                    <SearchBar
+                        onResetSearchBar={onResetSearchBar}
+                        customPlaceHolder={'Search for Topics, Course ...'}
+                        keyword={keyword}
+                        onSearch={onSearch}
+                        containerStyle={styles.styleSearchBar}
+                    />
+                </View>
+                {isSearching && filtered ? (
+                    <FlatList
+                        data={filtered}
+                        keyExtractor={(item) => item.id}
+                        renderItem={CoursesListSearch}
+                        style={{
+                            flex: 1,
+                            paddingHorizontal: 25,
+                        }}
+                    />
+                ) : (
+                    <ScrollView contentContainerStyle={styles.viewScrollView} showsVerticalScrollIndicator={false}>
+                        {renderTopSearches()}
+                        {renderBrowseCategories()}
+                    </ScrollView>
+                )}
             </View>
         );
     };
 
-    return (
-        <View style={styles.container}>
-            {renderSearchBar()}
-            <ScrollView contentContainerStyle={styles.viewScrollView} showsVerticalScrollIndicator={false}>
-                {renderTopSearches()}
-                {renderBrowseCategories()}
-            </ScrollView>
-        </View>
-    );
+    return <View style={styles.container}>{renderSearchBar()}</View>;
 };
 const styles = ScaledSheet.create({
     container: {
@@ -132,7 +187,7 @@ const styles = ScaledSheet.create({
         paddingBottom: '90@vs',
     },
     containerSearch: {
-        marginTop: SIZES.padding,
+        marginTop: '15@vs',
     },
     titleSearchBar: {
         marginHorizontal: SIZES.padding,
@@ -158,15 +213,11 @@ const styles = ScaledSheet.create({
     },
     // SearchBar
     positionSearchBar: {
-        paddingHorizontal: SIZES.padding,
         height: '50@vs',
         marginTop: isIos ? '50@vs' : '25@vs',
-        marginBottom: '15@vs',
+        flex: 1,
     },
     styleSearchBar: {
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'center',
         width: SIZES.width - SIZES.padding * 2,
         paddingHorizontal: SIZES.radius,
         borderRadius: SIZES.radius,
@@ -179,6 +230,31 @@ const styles = ScaledSheet.create({
         shadowOpacity: 0.25,
         shadowRadius: 3.84,
         elevation: 5,
+        marginBottom: '15@vs',
+    },
+    // Course list search
+    containerItemCourseListSearch: {
+        flexDirection: 'row',
+        marginTop: SIZES.radius,
+        alignItems: 'center',
+        marginBottom: '5@vs',
+    },
+    imgProfile: {
+        width: '50@s',
+        height: '50@vs',
+        borderRadius: 25,
+    },
+    containerNameTitle: {
+        flex: 1,
+        marginLeft: '10@s',
+        justifyContent: 'center',
+    },
+    nameAuthor: {
+        ...FONTS.h3,
+        fontSize: 18,
+    },
+    titleInstructor: {
+        ...FONTS.body3,
     },
 });
 export default SearchScreen;
