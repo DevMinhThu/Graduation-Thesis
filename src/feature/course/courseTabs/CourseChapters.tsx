@@ -1,13 +1,27 @@
+import { collection, getDocs } from 'firebase/firestore/lite';
 import { APP_ROUTE } from 'navigation/config/routes';
 import { navigate } from 'navigation/NavigationService';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { FlatList, Image, ScrollView, Text, View } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
 import { IconLabel, LineDivider, TextButton, VerticalCourseCard } from '../../../components/common';
-import { COLORS, dummyData, FONTS, icons, SIZES } from '../../../constants';
+import { COLORS, FONTS, icons, SIZES } from '../../../constants';
+import { DataBase } from '../../../firebase/firebase-config';
 
 const CourseChapters = (props: any) => {
     const { selectedCourse } = props;
+    const [coursesListVertical, setCoursesListVertical] = useState<any>();
+
+    useEffect(() => {
+        getCoursesListVertical();
+    }, []);
+
+    const getCoursesListVertical = async () => {
+        const coursesListVerticalCollection = collection(DataBase, 'coursesListVertical');
+        const coursesListVerticalSnapshot = await getDocs(coursesListVerticalCollection);
+        const coursesListVerticalList = coursesListVerticalSnapshot.docs.map((doc) => doc.data());
+        setCoursesListVertical(coursesListVerticalList);
+    };
 
     const renderHeader = () => {
         return (
@@ -68,7 +82,8 @@ const CourseChapters = (props: any) => {
                 </View>
                 {/* Popular Courses List */}
                 <FlatList
-                    data={dummyData.courses_list_vertical}
+                    data={coursesListVertical}
+                    // data={dummyData.courses_list_vertical}
                     listKey="PopularCourses"
                     scrollEnabled={false}
                     keyExtractor={(item: any) => `PopularCourses-${item.id}`}
