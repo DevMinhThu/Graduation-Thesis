@@ -128,7 +128,11 @@ const HomeScreen = () => {
 
     return (
         <View style={styles.container}>
-            <Header nameUser="Hello, Vu Minh Thu!" dateTime="Friday, 9th Sept 2021" />
+            <Header
+                nameUser="Hello, Vu Minh Thu!"
+                dateTime="Friday, 9th Sept 2021"
+                onPress={() => navigate(APP_ROUTE.NOTIFICATION)}
+            />
             {/* === Content === */}
             <ScrollView contentContainerStyle={styles.viewScrollView} showsVerticalScrollIndicator={false}>
                 <StartLearning />
