@@ -1,6 +1,7 @@
 import { useAppSelector } from 'app-redux/hooks';
 import CourseDetails from 'feature/course/components/CourseDetails';
 import CourseListScreen from 'feature/course/CourseListScreen';
+import NotificationScreen from 'feature/notifications/NotificationScreen';
 import ViroSceneAR from 'feature/viroAR';
 import React from 'react';
 import { Easing } from 'react-native';
@@ -56,6 +57,7 @@ const AppStack = () => (
             />
             <MainStack.Screen name={APP_ROUTE.COURSE_DETAIL} component={CourseDetails} />
             <MainStack.Screen name={APP_ROUTE.VIRO_AR} component={ViroSceneAR} />
+            <MainStack.Screen name={APP_ROUTE.NOTIFICATION} component={NotificationScreen} />
         </MainStack.Navigator>
     </Host>
 );

@@ -8,10 +8,11 @@ import { COLORS, FONTS, icons, SIZES } from '../../../constants';
 interface IHeader {
     nameUser: string;
     dateTime: string;
+    onPress(): void;
 }
 
 const Header = (props: IHeader) => {
-    const { nameUser, dateTime } = props;
+    const { nameUser, dateTime, onPress } = props;
     return (
         <View style={styles.header}>
             {/* Greeting */}
@@ -21,7 +22,7 @@ const Header = (props: IHeader) => {
             </View>
 
             {/* Notification */}
-            <IconButton icon={icons.notification} iconStyle={styles.notification} />
+            <IconButton onPress={onPress} icon={icons.notification} iconStyle={styles.notification} />
         </View>
     );
 };
