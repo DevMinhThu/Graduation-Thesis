@@ -8,7 +8,7 @@ import { Image, Keyboard, ScrollView, Text, TouchableOpacity, View } from 'react
 import { FlatList } from 'react-native-gesture-handler';
 import { ScaledSheet } from 'react-native-size-matters';
 import { isIos } from 'utilities/helper';
-import { COLORS, dummyData, FONTS, SIZES } from '../../constants';
+import { COLORS, FONTS, SIZES } from '../../constants';
 import { DataBase } from '../../firebase/firebase-config';
 import SearchBar from './components/SearchBar';
 
@@ -17,11 +17,13 @@ const SearchScreen: FunctionComponent = () => {
     const [topSearches, setTopSearches] = useState<any>([]);
     const [categories, setCategories] = useState<any>();
     const [isSearching, setIsSearching] = useState(false);
-    const [filtered, setFiltered] = useState(dummyData.courses_list_vertical);
+    const [filtered, setFiltered] = useState<any>([]);
+    const [masterDataSource, setMasterDataSource] = useState<any>([]);
 
     useEffect(() => {
         getTopSearches();
         getCategories();
+        getCoursesListAll();
     }, []);
 
     const getTopSearches = async () => {
@@ -36,6 +38,14 @@ const SearchScreen: FunctionComponent = () => {
         const categoriesSnapshot = await getDocs(categoriesCollection);
         const categoriesList = categoriesSnapshot.docs.map((doc) => doc.data());
         setCategories(categoriesList);
+    };
+
+    const getCoursesListAll = async () => {
+        const coursesListAllCollection = collection(DataBase, 'coursesListAll');
+        const coursesListAllSnapshot = await getDocs(coursesListAllCollection);
+        const coursesListAll = coursesListAllSnapshot.docs.map((doc) => doc.data());
+        setFiltered(coursesListAll);
+        setMasterDataSource(coursesListAll);
     };
 
     const renderTopSearches = () => {
@@ -124,7 +134,7 @@ const SearchScreen: FunctionComponent = () => {
         const onSearch = (text: any) => {
             if (text) {
                 setIsSearching(true);
-                const newData = filtered.filter((item) => {
+                const newData = masterDataSource.filter((item: any) => {
                     const itemData = item.title ? item.title.toUpperCase() : ''.toUpperCase();
                     const textData = text.toUpperCase();
                     return itemData.indexOf(textData) > -1;
@@ -133,7 +143,7 @@ const SearchScreen: FunctionComponent = () => {
                 setKeyword(text);
             } else {
                 Keyboard.dismiss();
-                setFiltered(dummyData.courses_list_vertical);
+                setFiltered(masterDataSource);
                 setIsSearching(false);
                 setKeyword(text);
             }
