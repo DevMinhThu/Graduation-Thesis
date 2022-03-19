@@ -80,6 +80,7 @@ const styles = ScaledSheet.create({
     },
     label: {
         ...FONTS.h3,
+        color: COLORS.black,
     },
     radioBtn: {
         width: '40@s',

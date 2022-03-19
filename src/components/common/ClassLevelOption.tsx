@@ -2,7 +2,7 @@ import React from 'react';
 import { Image, Text, TouchableOpacity } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
 import { LineDivider } from '.';
-import { FONTS, icons } from '../../constants';
+import { COLORS, FONTS, icons } from '../../constants';
 
 const ClassLevelOption = (props: any) => {
     const { containerStyle, classLevel, isLastItem, isSelected, onPress } = props;
@@ -27,6 +27,7 @@ const styles = ScaledSheet.create({
     label: {
         flex: 1,
         ...FONTS.body3,
+        color: COLORS.black,
     },
     checkBoxIcon: {
         width: '20@s',

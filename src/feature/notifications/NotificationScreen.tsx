@@ -92,12 +92,14 @@ const styles = ScaledSheet.create({
         fontWeight: 'bold',
         fontSize: SIZES.body3,
         marginRight: 10,
+        color: COLORS.black,
     },
     createdAt: {
         color: COLORS.gray50,
     },
     content: {
         fontSize: SIZES.body4,
+        color: COLORS.black,
     },
 });
 

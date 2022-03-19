@@ -94,6 +94,7 @@ const styles = ScaledSheet.create({
     title: {
         ...FONTS.h3,
         fontSize: 18,
+        color: COLORS.black,
     },
     viewCourseInfo: {
         flexDirection: 'row',

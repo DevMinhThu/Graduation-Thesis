@@ -61,6 +61,7 @@ const styles = ScaledSheet.create({
     titleCourse: {
         flex: 1,
         ...FONTS.h3,
+        color: COLORS.black,
     },
     iconTime: {
         marginTop: SIZES.base,

@@ -141,6 +141,7 @@ const styles = ScaledSheet.create({
         flex: 1,
         textAlign: 'center',
         ...FONTS.h1,
+        color: COLORS.black,
     },
     optionCreatedWithin: {
         flex: 1,
@@ -160,6 +161,7 @@ const styles = ScaledSheet.create({
     },
     titleClass: {
         ...FONTS.h3,
+        color: COLORS.black,
     },
     containerBtnCancel: {
         width: 60,

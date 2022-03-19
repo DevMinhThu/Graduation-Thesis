@@ -130,6 +130,7 @@ const styles = ScaledSheet.create({
     },
     titleCourseDetail: {
         ...FONTS.h2,
+        color: COLORS.black,
     },
     containerStudentsDuration: {
         flexDirection: 'row',
@@ -167,9 +168,11 @@ const styles = ScaledSheet.create({
     nameAuthor: {
         ...FONTS.h3,
         fontSize: 18,
+        color: COLORS.black,
     },
     titleInstructor: {
         ...FONTS.body3,
+        color: COLORS.black,
     },
     bgButtonFollow: {
         width: '35@s',
@@ -228,6 +231,7 @@ const styles = ScaledSheet.create({
     titlePopularCourse: {
         flex: 1,
         ...FONTS.h2,
+        color: COLORS.black,
     },
     btnSeeAll: {
         width: '80@s',
@@ -240,9 +244,11 @@ const styles = ScaledSheet.create({
     titleDescription: {
         ...FONTS.h3,
         marginBottom: '10@vs',
+        color: COLORS.black,
     },
     contentDescription: {
         fontSize: '14@ms',
+        color: COLORS.black,
     },
 });
 
