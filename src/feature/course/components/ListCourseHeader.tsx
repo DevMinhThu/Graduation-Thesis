@@ -34,6 +34,7 @@ const styles = ScaledSheet.create({
     numberResult: {
         flex: 1,
         ...FONTS.body3,
+        color: COLORS.black,
     },
     iconFilter: {
         width: '40@s',

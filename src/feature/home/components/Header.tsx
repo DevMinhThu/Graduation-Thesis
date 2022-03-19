@@ -40,6 +40,7 @@ const styles = ScaledSheet.create({
     },
     nameUser: {
         ...FONTS.h2,
+        color: COLORS.black,
     },
     day: {
         color: COLORS.gray50,

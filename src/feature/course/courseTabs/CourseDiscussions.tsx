@@ -14,9 +14,9 @@ const CommentSection = ({ commentItem, commentOption, replies }: any) => {
             {/* Name & comment */}
             <View style={styles.containerContent}>
                 {/* Name */}
-                <Text style={{ ...FONTS.h3 }}>{commentItem?.name}</Text>
+                <Text style={{ ...FONTS.h3, color: COLORS.black }}>{commentItem?.name}</Text>
                 {/* Comment */}
-                <Text style={{ ...FONTS.body4 }}>{commentItem?.comment}</Text>
+                <Text style={{ ...FONTS.body4, color: COLORS.black }}>{commentItem?.comment}</Text>
                 {/* Comment Options */}
                 {commentOption}
                 {/* Replies */}

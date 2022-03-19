@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 import { setHeight, setWidth } from '../../../utilities/Display';
-import { ThumbnailWelcome } from '../../../constants';
+import { COLORS, ThumbnailWelcome } from '../../../constants';
 
 const WelcomeCard = ({ title, content, image }: any) => {
     return (
@@ -28,11 +28,13 @@ const styles = StyleSheet.create({
         fontSize: 22,
         fontWeight: 'bold',
         marginBottom: 10,
+        color: COLORS.black,
     },
     contentText: {
         fontSize: 16,
         textAlign: 'center',
         marginHorizontal: 20,
+        color: COLORS.black,
     },
 });
 

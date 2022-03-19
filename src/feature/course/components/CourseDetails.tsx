@@ -147,6 +147,7 @@ const styles = ScaledSheet.create({
     labelTab: {
         ...FONTS.h3,
         fontSize: SIZES.height > 800 ? 17 : 16,
+        color: COLORS.black,
     },
 });
 

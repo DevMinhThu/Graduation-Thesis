@@ -202,6 +202,7 @@ const styles = ScaledSheet.create({
     titleSearchBar: {
         marginHorizontal: SIZES.padding,
         ...FONTS.h2,
+        color: COLORS.black,
     },
     containerFlatList: {
         marginTop: SIZES.radius,
@@ -262,6 +263,7 @@ const styles = ScaledSheet.create({
     nameAuthor: {
         ...FONTS.h3,
         fontSize: 18,
+        color: COLORS.black,
     },
     titleInstructor: {
         ...FONTS.body3,

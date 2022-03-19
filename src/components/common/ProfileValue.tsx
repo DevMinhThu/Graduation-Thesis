@@ -54,6 +54,7 @@ const styles = ScaledSheet.create({
     },
     value: {
         ...FONTS.h3,
+        color: COLORS.black,
     },
     iconRightArrow: {
         width: '15@s',

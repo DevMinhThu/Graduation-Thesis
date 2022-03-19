@@ -59,6 +59,7 @@ const styles = ScaledSheet.create({
         position: 'absolute',
         top: isIos ? '120@vs' : '95@vs',
         left: '20@s',
+        color: COLORS.black,
     },
 });
 

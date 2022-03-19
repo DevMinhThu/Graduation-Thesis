@@ -103,6 +103,7 @@ const styles = ScaledSheet.create({
     title: {
         ...FONTS.h2,
         fontSize: '25@ms',
+        color: COLORS.black,
     },
     containerListStudents: {
         flexDirection: 'row',
@@ -138,6 +139,7 @@ const styles = ScaledSheet.create({
     },
     nameFile: {
         ...FONTS.h2,
+        color: COLORS.black,
     },
     nameAuthor: {
         color: COLORS.gray30,
@@ -145,6 +147,7 @@ const styles = ScaledSheet.create({
     },
     uploadDate: {
         ...FONTS.body4,
+        color: COLORS.black,
     },
     styleIcon: {
         width: '25@s',
