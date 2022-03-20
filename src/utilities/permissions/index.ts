@@ -1,9 +1,10 @@
 /* eslint-disable consistent-return */
+import AlertMessage from 'components/base/AlertMessage';
 import i18next from 'i18next';
-import { Alert } from 'react-native';
+import { Alert, PermissionsAndroid } from 'react-native';
 import Config from 'react-native-config';
 import { check, PERMISSIONS, RESULTS, openSettings, request } from 'react-native-permissions';
-import { isIos, logger } from '../helper';
+import { isAndroid, isIos, logger } from '../helper';
 
 export const checkCamera = async () => {
     try {
@@ -107,4 +108,27 @@ const messagesUnavailable: any = {
 
 const showPermissionUnavailable = (type: string) => {
     Alert.alert(Config.APP_NAME, messagesUnavailable[type]);
+};
+
+export const checkPermissionDownloadFile = async () => {
+    const configAndroid: any = {
+        title: 'Storage Permission Required',
+        message: 'Application needs access to your storage to download File',
+    };
+    if (isIos) {
+        return true;
+    }
+    if (isAndroid) {
+        try {
+            const granted = await PermissionsAndroid.request(
+                PermissionsAndroid.PERMISSIONS.WRITE_EXTERNAL_STORAGE,
+                configAndroid,
+            );
+            if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+                return true;
+            }
+        } catch (err: any) {
+            AlertMessage(err);
+        }
+    }
 };

@@ -15,7 +15,7 @@ const ProfileValue = (props: any) => {
             {/* label & value */}
             <View style={styles.viewLabelValue}>
                 {label && <Text style={styles.label}>{label}</Text>}
-                <Text style={styles.value}>{value}</Text>
+                {value === '' ? null : <Text style={styles.value}>{value}</Text>}
             </View>
 
             {/* icon */}

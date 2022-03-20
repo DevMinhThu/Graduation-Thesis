@@ -62,13 +62,13 @@ const AccountView = () => {
 
                 {/* Profile Section 1 */}
                 <View style={styles.profileSectionContainer}>
-                    <ProfileValue icon={icons.profile} label="Name" value="Vu Minh Thu" />
+                    <ProfileValue icon={icons.profile} label="Name" value="" />
                     <LineDivider />
-                    <ProfileValue icon={icons.email} label="Email" value="vuminhthu@gmail.com" />
+                    <ProfileValue icon={icons.email} label="Email" value="" />
                     <LineDivider />
-                    <ProfileValue icon={icons.password} label="Password" value="Updated 2 week ago" />
+                    <ProfileValue icon={icons.password} label="Password" value="" />
                     <LineDivider />
-                    <ProfileValue icon={icons.call} label="Contact Number" value="+8486123567" />
+                    <ProfileValue icon={icons.call} label="Contact Number" value="" />
                 </View>
 
                 {/* Profile Section 2 */}
