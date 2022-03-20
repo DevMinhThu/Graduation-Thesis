@@ -50,6 +50,7 @@ export default {
         notification: '通知',
         setting: '設定',
         account: 'Profile',
+        todo: 'CheckList',
     },
     authen: {
         login: {
