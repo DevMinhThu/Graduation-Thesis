@@ -74,3 +74,8 @@ export const getCodePushInfo = () => {
         });
     }
 };
+
+export const getFileExtension = (fileUrlParam: string) => {
+    // To get the file extension
+    return /[.]/.exec(fileUrlParam) ? /[^.]+$/.exec(fileUrlParam) : undefined;
+};

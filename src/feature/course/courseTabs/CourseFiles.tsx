@@ -1,8 +1,13 @@
+/* eslint-disable consistent-return */
+import AlertMessage from 'components/base/AlertMessage';
 import { APP_ROUTE } from 'navigation/config/routes';
 import { navigate } from 'navigation/NavigationService';
 import React from 'react';
-import { Image, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { Image, Platform, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
+import RNFetchBlob from 'rn-fetch-blob';
+import { getFileExtension, isIos } from 'utilities/helper';
+import { checkPermissionDownloadFile } from 'utilities/permissions';
 import { IconButton, TextButton } from '../../../components/common';
 import { COLORS, FONTS, icons, SIZES } from '../../../constants';
 
@@ -48,36 +53,90 @@ const CourseFiles = (props: any) => {
     };
 
     const renderFiles = () => {
+        // const fileUrl = 'url_file_download';
+
+        const handleDownloadFile = async (paramLink: any) => {
+            if (await checkPermissionDownloadFile()) {
+                downloadFile(paramLink);
+            }
+        };
+
+        const downloadFile = (paramLink: any) => {
+            const date = new Date();
+            // const FILE_URL = fileUrl;
+            const FILE_URL = paramLink;
+            let fileExt: any = getFileExtension(FILE_URL);
+            fileExt = `.${fileExt[0]}`;
+
+            const { config, fs, ios } = RNFetchBlob;
+            const RootDir = isIos ? fs.dirs.DocumentDir : fs.dirs.PictureDir;
+
+            const configOptions: any = Platform.select({
+                ios: {
+                    fileCache: true,
+                    path: `${RootDir}/file_${Math.floor(date.getTime() + date.getSeconds() / 2)}${fileExt}`,
+                },
+                android: {
+                    addAndroidDownloads: {
+                        fileCache: true,
+                        useDownloadManager: true,
+                        notification: true,
+                        path: `${RootDir}/file_${Math.floor(date.getTime() + date.getSeconds() / 2)}${fileExt}`,
+                    },
+                },
+            });
+
+            config(configOptions)
+                .fetch('GET', FILE_URL)
+                .then((res) => {
+                    ios.openDocument(res?.data);
+                    AlertMessage(
+                        `Downloaded Successfully file_${Math.floor(date.getTime() + date.getSeconds() / 2)}${fileExt}`,
+                    );
+                })
+                .catch((err: any) => {
+                    console.log(err);
+                });
+        };
+
         return (
             <View style={styles.containerFile}>
                 {/* Title */}
                 <Text style={styles.title}>Files</Text>
                 {/* File */}
-                {selectedCourse?.files.map((item, index) => {
-                    return (
-                        <TouchableOpacity
-                            key={`Files-${index}`}
-                            style={styles.containerItemFiles}
-                            onPress={() => navigate(APP_ROUTE.VIRO_AR, { item })}
-                        >
-                            {/* Thumbnail */}
-                            {/* <Image source={item?.thumbnail} resizeMode="cover" style={styles.imgStudent} /> */}
-                            <Image source={{ uri: item?.thumbnail }} resizeMode="cover" style={styles.imgStudent} />
-                            {/* Name, author & date */}
-                            <View style={styles.infoFile}>
-                                <Text style={styles.nameFile}>{item?.name}</Text>
-                                <Text style={styles.nameAuthor}>{item?.author}</Text>
-                                <Text style={styles.uploadDate}>{item?.upload_date}</Text>
-                            </View>
-                            {/* Menu */}
-                            <IconButton
-                                icon={icons.menu}
-                                iconStyle={styles.styleIcon}
-                                containerStyle={styles.containerIcon}
-                            />
-                        </TouchableOpacity>
-                    );
-                })}
+                {selectedCourse?.files.map(
+                    (item: any, index: any) =>
+                        (item?.link || item?.obj) && (
+                            <TouchableOpacity
+                                key={`Files-${index}`}
+                                style={styles.containerItemFiles}
+                                onPress={() => {
+                                    if (item?.type === 'OBJ') {
+                                        return navigate(APP_ROUTE.VIRO_AR, { item });
+                                    }
+                                    handleDownloadFile(item?.link);
+                                }}
+                            >
+                                {/* Thumbnail */}
+                                {/* <Image source={item?.thumbnail} resizeMode="cover" style={styles.imgStudent} /> */}
+                                <Image source={{ uri: item?.thumbnail }} resizeMode="cover" style={styles.imgStudent} />
+                                {/* Name, author & date */}
+                                <View style={styles.infoFile}>
+                                    <Text numberOfLines={1} style={styles.nameFile}>
+                                        {item?.name}
+                                    </Text>
+                                    <Text style={styles.nameAuthor}>{item?.author}</Text>
+                                    <Text style={styles.uploadDate}>{item?.upload_date}</Text>
+                                </View>
+                                {/* Menu */}
+                                <IconButton
+                                    icon={icons.menu}
+                                    iconStyle={styles.styleIcon}
+                                    containerStyle={styles.containerIcon}
+                                />
+                            </TouchableOpacity>
+                        ),
+                )}
             </View>
         );
     };
