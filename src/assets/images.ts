@@ -11,6 +11,7 @@ const Images = {
             setting: require('./icon/ic_setting.png'),
             account: require('./icon/ic_account.png'),
             search: require('./icon/ic_search.png'),
+            todo: require('./icon/ic_todo.png'),
         },
         radio: {
             check: require('./icon/ic_check_radio.png'),

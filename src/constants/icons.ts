@@ -55,6 +55,7 @@ const profileUser = require('../assets/images/student_2.png');
 const lock_pass = require('../assets/icon/lock_pass.png');
 const ic_back = require('../assets/icon/ic_back.png');
 const pause = require('../assets/icon/pause.png');
+const trash = require('../assets/icon/ic_trash.png');
 
 export default {
     ic_back,
@@ -113,4 +114,5 @@ export default {
     profileUser,
     lock_pass,
     pause,
+    trash,
 };

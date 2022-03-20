@@ -5,6 +5,7 @@ import AccountView from 'feature/account/AccountView';
 // Screen
 import HomeScreen from 'feature/home/HomeScreen';
 import SearchScreen from 'feature/search/SearchScreen';
+import TodoScreen from 'feature/todo/TodoScreen';
 import StyledTabBar from 'navigation/components/StyledTabBar';
 import navigationConfigs from 'navigation/config/options';
 import { TAB_NAVIGATION_ROOT } from 'navigation/config/routes';
@@ -35,6 +36,12 @@ const MainTabContainer = () => {
             title: t('tab.search'),
             component: SearchScreen,
             icon: Images.icons.tab.search,
+        },
+        {
+            name: TAB_NAVIGATION_ROOT.TODO_ROUTE.ROOT,
+            title: t('tab.todo'),
+            component: TodoScreen,
+            icon: Images.icons.tab.todo,
         },
         {
             name: TAB_NAVIGATION_ROOT.ACCOUNT_ROUTE.ROOT,
