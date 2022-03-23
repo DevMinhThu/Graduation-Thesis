@@ -4,6 +4,7 @@ import Images from 'assets/images';
 import AccountView from 'feature/account/AccountView';
 // Screen
 import HomeScreen from 'feature/home/HomeScreen';
+import ScheduleScreen from 'feature/schedule/ScheduleScreen';
 import SearchScreen from 'feature/search/SearchScreen';
 import TodoScreen from 'feature/todo/TodoScreen';
 import StyledTabBar from 'navigation/components/StyledTabBar';
@@ -42,6 +43,12 @@ const MainTabContainer = () => {
             title: t('tab.todo'),
             component: TodoScreen,
             icon: Images.icons.tab.todo,
+        },
+        {
+            name: TAB_NAVIGATION_ROOT.SCHEDULE_ROUTE.ROOT,
+            title: t('tab.schedule'),
+            component: ScheduleScreen,
+            icon: Images.icons.tab.schedule,
         },
         {
             name: TAB_NAVIGATION_ROOT.ACCOUNT_ROUTE.ROOT,

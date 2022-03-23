@@ -12,6 +12,7 @@ const Images = {
             account: require('./icon/ic_account.png'),
             search: require('./icon/ic_search.png'),
             todo: require('./icon/ic_todo.png'),
+            schedule: require('./icon/ic_calendar.png'),
         },
         radio: {
             check: require('./icon/ic_check_radio.png'),
