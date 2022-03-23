@@ -51,6 +51,7 @@ export default {
         setting: '設定',
         account: 'Profile',
         todo: 'CheckList',
+        schedule: 'Schedule',
     },
     authen: {
         login: {
