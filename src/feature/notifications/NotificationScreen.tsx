@@ -1,7 +1,7 @@
 import { LineDivider } from 'components/common';
 import { collection, getDocs } from 'firebase/firestore/lite';
 import React, { FunctionComponent, useEffect, useState } from 'react';
-import { FlatList, Image, Text, TouchableOpacity, View } from 'react-native';
+import { FlatList, Image, Linking, Text, TouchableOpacity, View } from 'react-native';
 import { ScaledSheet } from 'react-native-size-matters';
 import { isIos } from 'utilities/helper';
 import { COLORS, SIZES } from '../../constants';
@@ -28,18 +28,28 @@ const NotificationScreen: FunctionComponent = () => {
                 data={notifications}
                 keyExtractor={(item: any) => `ListCourse-${item.id}`}
                 contentContainerStyle={styles.containerListCourse}
-                showsVerticalScrollIndicator={false}
+                showsVerticalScrollIndicator={true}
                 scrollEventThrottle={16}
                 keyboardDismissMode="on-drag"
                 renderItem={({ item }) => (
-                    <TouchableOpacity style={styles.itemNotification} key={item.id}>
+                    <TouchableOpacity
+                        style={styles.itemNotification}
+                        key={item.id}
+                        onPress={() =>
+                            Linking.openURL(
+                                `http://daotao.vnua.edu.vn/default.aspx?page=chitietthongtin&id=${item?.id}`,
+                            )
+                        }
+                    >
                         <Image source={{ uri: item.avatar }} resizeMode="contain" style={styles.avatar} />
                         <View style={styles.viewContentNotification}>
                             <View style={styles.viewInfo}>
                                 <Text style={styles.nameUser}>{item?.name}</Text>
-                                <Text style={styles.createdAt}>{item.created_at}</Text>
                             </View>
-                            <Text style={styles.content}>{item?.message}</Text>
+                            <Text numberOfLines={3} style={styles.content}>
+                                {item?.message}
+                            </Text>
+                            <Text style={styles.createdAt}>{item.created_at}</Text>
                         </View>
                     </TouchableOpacity>
                 )}
@@ -71,7 +81,7 @@ const styles = ScaledSheet.create({
     // item notification
     itemNotification: {
         flexDirection: 'row',
-        paddingVertical: '20@vs',
+        paddingVertical: '15@vs',
     },
     avatar: {
         width: '70@s',
@@ -84,9 +94,7 @@ const styles = ScaledSheet.create({
         flex: 1,
     },
     viewInfo: {
-        flexDirection: 'row',
-        alignItems: 'center',
-        marginBottom: 5,
+        marginBottom: '10@vs',
     },
     nameUser: {
         fontWeight: 'bold',
@@ -96,6 +104,7 @@ const styles = ScaledSheet.create({
     },
     createdAt: {
         color: COLORS.gray50,
+        marginTop: '5@vs',
     },
     content: {
         fontSize: SIZES.body4,
